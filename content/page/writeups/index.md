@@ -1,7 +1,7 @@
 ---
 title: "Writeups"
 slug: "writeups"
-description: "Technical challenge writeups covering binary exploitation, reverse engineering, and forensics."
+description: "Local challenge writeups reconstructed from Codex solve sessions and extracted artifacts."
 menu:
     main:
         weight: 1
@@ -11,18 +11,16 @@ menu:
 
 # Writeups
 
-This section collects hands-on technical writeups with clear steps, commands, and outcomes.
+This section collects writeups reconstructed from local Codex solves and the challenge files stored in this workspace.
 
-## Featured
+## Local Archive
 
-- [BSidesSF 2019: slowfire](/p/bsidessf-2019-slowfire/)
-- [UTCTF 2019: BabyEcho](/p/utctf-2019-babyecho/)
-- [Binary Exploitation: From Format String Leak To GOT Overwrite](/p/binary-exploitation-got-overwrite/)
-- [Reverse Engineering: Unpacking A License Checker](/p/reverse-engineering-license-checker/)
-- [Forensics: Recovering Credentials From A PCAP](/p/forensics-pcap-credential-recovery/)
+- [HTB Cyber Apocalypse: Blueprint Heist](/p/htb-blueprint-heist/)
+- [HTB Cyber Apocalypse: Regularity](/p/htb-regularity/)
+- [HTB Cyber Apocalypse: OmniWatch](/p/htb-omniwatch/)
 
 ## Focus
 
-- Binary exploitation chains
-- Reverse engineering workflow notes
-- Incident response and forensics case work
+- Web exploitation chains recovered from extracted source
+- Binary exploitation writeups from local solve sessions
+- Public notes generated from Codex's own archive
