@@ -1,22 +1,160 @@
 {{ define "main" }}
-    {{- $paginator := partial "helper/paginator.html" . -}}
+    {{- $posts := first 6 (sort (where .Site.RegularPages "Section" "post") "Date" "desc") -}}
+    {{- $featured := first 3 $posts -}}
+    {{- $tags := first 10 .Site.Taxonomies.tags.ByCount -}}
 
-    {{- if .Content -}}
-        <section class="home-intro">
-            {{ partial "article/components/content.html" . }}
+    <div class="ash-home">
+        <section class="ash-hero">
+            <div class="ash-hero__glow"></div>
+            <p class="ash-kicker">0xAsh // Digital Lab</p>
+            <h1>Binary exploitation, reverse engineering, and live challenge research.</h1>
+            <p class="ash-lead">A dark archive of local Codex solves, active discoveries, and exploit paths reconstructed from the lab.</p>
+            <div class="ash-actions">
+                <a class="ash-button" href="{{ "/writeups/" | relURL }}">Open Writeups</a>
+                <a class="ash-button ash-button--ghost" href="{{ "/discoveries/" | relURL }}">Research Notes</a>
+            </div>
+            <div class="ash-status">
+                <span class="ash-status__label">status</span>
+                <span class="ash-status__value">tracking buffers, symbols, and broken trust boundaries<span class="ash-cursor"></span></span>
+            </div>
         </section>
-    {{- end -}}
 
-    <section class="article-list">
-        {{ range $index, $element := $paginator.Pages }}
-            {{ partial "article-list/default" . }}
-        {{ end }}
-    </section>
+        <section class="ash-panel">
+            <div class="ash-panel__head">
+                <div>
+                    <p class="ash-eyebrow">Tracks</p>
+                    <h2>Core lanes</h2>
+                </div>
+                <a class="ash-inline-link" href="{{ "/archives/" | relURL }}">Open archive</a>
+            </div>
+            <div class="ash-track-grid">
+                <a class="ash-track" href="{{ "/categories/binary-exploitation/" | relURL }}">
+                    <span class="ash-track__label">01</span>
+                    <h3>Binary Exploitation</h3>
+                    <p>Stack corruption, shellcode pivots, memory layouts, and exploit reliability notes.</p>
+                </a>
+                <a class="ash-track" href="{{ "/discoveries/" | relURL }}">
+                    <span class="ash-track__label">02</span>
+                    <h3>Reverse Engineering</h3>
+                    <p>Behavior triage, binary internals, protocol tracing, and active reversing fragments.</p>
+                </a>
+                <a class="ash-track" href="{{ "/categories/web-exploitation/" | relURL }}">
+                    <span class="ash-track__label">03</span>
+                    <h3>Web And Challenge Research</h3>
+                    <p>Source-guided exploit chains, trust-boundary breaks, and reconstructed solve paths.</p>
+                </a>
+            </div>
+        </section>
 
-    {{- partial "pagination.html" . -}}
+        <section class="ash-panel">
+            <div class="ash-panel__head">
+                <div>
+                    <p class="ash-eyebrow">Featured Work</p>
+                    <h2>Recent solved sessions</h2>
+                </div>
+                <a class="ash-inline-link" href="{{ "/writeups/" | relURL }}">View all writeups</a>
+            </div>
+            <div class="ash-card-grid">
+                {{ range $featured }}
+                    <article class="ash-work-card">
+                        <div class="ash-work-card__top">
+                            {{ with .Params.categories }}
+                                <span class="ash-label">{{ index . 0 }}</span>
+                            {{ end }}
+                            <span class="ash-year">{{ .Date.Format "2006" }}</span>
+                        </div>
+                        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                        <p>{{ .Description | default (.Summary | plainify) | truncate 170 }}</p>
+                        <div class="ash-meta">
+                            {{ with .Params.tags }}
+                                {{ range first 3 . }}
+                                    <span>{{ . }}</span>
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    </article>
+                {{ end }}
+            </div>
+        </section>
+
+        <section class="ash-panel">
+            <div class="ash-panel__head">
+                <div>
+                    <p class="ash-eyebrow">Lab Map</p>
+                    <h2>Where everything lives</h2>
+                </div>
+            </div>
+            <div class="ash-utility-grid">
+                <a class="ash-utility" href="{{ "/writeups/" | relURL }}">
+                    <h3>Writeups</h3>
+                    <p>Full challenge breakdowns with steps, commands, and final results from local solves.</p>
+                </a>
+                <a class="ash-utility" href="{{ "/discoveries/" | relURL }}">
+                    <h3>Discoveries</h3>
+                    <p>Shorter research lanes, odd behavior notes, and things still worth tearing apart.</p>
+                </a>
+                <a class="ash-utility" href="{{ "/search/" | relURL }}">
+                    <h3>Search</h3>
+                    <p>Jump straight into tags, topics, payloads, and archived challenge names.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="ash-split-grid">
+            <section class="ash-panel">
+                <div class="ash-panel__head">
+                    <div>
+                        <p class="ash-eyebrow">Recently Updated</p>
+                        <h2>Latest logs</h2>
+                    </div>
+                </div>
+                <ul class="ash-log-list">
+                    {{ range $posts }}
+                        <li>
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                            <span>{{ .Date.Format "Jan 02" }}</span>
+                        </li>
+                    {{ end }}
+                </ul>
+            </section>
+
+            <section class="ash-panel">
+                <div class="ash-panel__head">
+                    <div>
+                        <p class="ash-eyebrow">Profiles</p>
+                        <h2>Personal accounts</h2>
+                    </div>
+                </div>
+                <ul class="ash-profile-list">
+                    <li>
+                        <span>GitHub</span>
+                        <a href="https://github.com/0xAshhh" target="_blank" rel="noopener">0xAshhh</a>
+                    </li>
+                    <li>
+                        <span>Instagram</span>
+                        <a href="https://www.instagram.com/71__anas/" target="_blank" rel="noopener">71__anas</a>
+                    </li>
+                    <li>
+                        <span>Discord</span>
+                        <strong>ctf0</strong>
+                    </li>
+                    <li>
+                        <span>LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/anas-almashaileh-ba443a395/?skipRedirect=true" target="_blank" rel="noopener">Anas Almashaileh</a>
+                    </li>
+                </ul>
+                {{ with $tags }}
+                    <div class="ash-tag-cloud">
+                        {{ range . }}
+                            <a class="ash-tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+                        {{ end }}
+                    </div>
+                {{ end }}
+            </section>
+        </section>
+    </div>
+
     {{- partial "footer/footer" . -}}
 {{ end }}
 
-{{ define "right-sidebar" }}
-    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
-{{ end }}
+{{ define "right-sidebar" }}{{ end }}

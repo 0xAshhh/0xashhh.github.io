@@ -14,3 +14,19 @@
 
     [social.params]
         icon = "brand-github"
+
+[[social]]
+    identifier = "instagram"
+    name       = "Instagram"
+    url        = "https://www.instagram.com/71__anas/"
+
+    [social.params]
+        icon = "brand-instagram"
+
+[[social]]
+    identifier = "linkedin"
+    name       = "LinkedIn"
+    url        = "https://www.linkedin.com/in/anas-almashaileh-ba443a395/?skipRedirect=true"
+
+    [social.params]
+        icon = "brand-linkedin"
