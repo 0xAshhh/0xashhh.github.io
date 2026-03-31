@@ -2,7 +2,7 @@
 title: "Reverse Engineering: Unpacking A License Checker"
 description: "Recovering the real validation logic from an obfuscated checker and reconstructing the accepted input."
 slug: reverse-engineering-license-checker
-date: 2026-03-31 12:30:00+0300
+date: 2026-03-30 12:30:00+0300
 categories:
     - Reverse Engineering
 tags:

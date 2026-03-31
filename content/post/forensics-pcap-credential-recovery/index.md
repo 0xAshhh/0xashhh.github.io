@@ -2,7 +2,7 @@
 title: "Forensics: Recovering Credentials From A PCAP"
 description: "Extracting a compromise timeline from packet captures and rebuilding the attacker’s access path."
 slug: forensics-pcap-credential-recovery
-date: 2026-03-31 13:00:00+0300
+date: 2026-03-30 13:00:00+0300
 categories:
     - Forensics
 tags:
