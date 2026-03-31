@@ -243,7 +243,7 @@ body {
 
 .ash-hero {
     padding: clamp(2rem, 5vw, 3.8rem);
-    min-height: min(78vh, 42rem);
+    min-height: Min(78vh, 42rem);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
