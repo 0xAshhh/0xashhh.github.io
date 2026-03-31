@@ -1,8 +1,12 @@
 ---
-menu:
-    main:
-        name: Home
-        weight: 1
-        params:
-            icon: home
+title: "0xAsh"
 ---
+
+# 0xAsh
+
+Welcome to my digital lab.
+
+I specialize in:
+- Binary Exploitation
+- Reverse Engineering
+- CTF Challenges
