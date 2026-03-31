@@ -1,3 +1,18 @@
-/*
-    You can add your own custom styles here.
-*/
+.home-intro {
+    @include card-style;
+    margin-bottom: var(--section-separation);
+    overflow: hidden;
+    padding: var(--card-padding) 0;
+
+    .article-content {
+        margin: 0;
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
