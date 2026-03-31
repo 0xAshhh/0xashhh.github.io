@@ -15,6 +15,7 @@ This section collects hands-on technical writeups with clear steps, commands, an
 
 ## Featured
 
+- [UTCTF 2019: BabyEcho](/p/utctf-2019-babyecho/)
 - [Binary Exploitation: From Format String Leak To GOT Overwrite](/p/binary-exploitation-got-overwrite/)
 - [Reverse Engineering: Unpacking A License Checker](/p/reverse-engineering-license-checker/)
 - [Forensics: Recovering Credentials From A PCAP](/p/forensics-pcap-credential-recovery/)
