@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
 @view-transition {
     navigation: auto;
+}
+
+:root {
+    --ash-sans: "Plus Jakarta Sans", sans-serif;
+    --ash-mono: "IBM Plex Mono", monospace;
 }
 
 @keyframes soft-page-enter {
@@ -25,8 +32,49 @@ html {
     scroll-behavior: smooth;
 }
 
+body,
+button,
+input,
+textarea,
+select {
+    font-family: var(--ash-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
 .main {
     animation: soft-page-enter 0.24s ease both;
+}
+
+.site-name,
+.article-title,
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+    font-family: var(--ash-sans);
+    letter-spacing: -0.03em;
+}
+
+.site-description,
+.menu li a,
+.article-tags a,
+.tagCloud-tags a,
+.article-content code,
+.article-content pre,
+.highlight {
+    font-family: var(--ash-mono);
+}
+
+.site-name a {
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.site-description {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.76rem;
 }
 
 .home-intro {
@@ -34,10 +82,11 @@ html {
     margin-bottom: var(--section-separation);
     overflow: hidden;
     padding: var(--card-padding) 0;
+    background: linear-gradient(180deg, var(--card-background), rgba(255, 255, 255, 0.01));
 
     .article-content {
         margin: 0;
-        line-height: 1.8;
+        line-height: 1.85;
 
         > :first-child {
             margin-top: 0;
@@ -51,6 +100,20 @@ html {
         h2,
         h3 {
             letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 3.6rem);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            margin-top: 2rem;
+        }
+
+        ul {
+            padding-left: 1.2rem;
         }
     }
 }
@@ -75,20 +138,39 @@ html {
 .widget:hover,
 .search-form.widget:hover {
     transform: translateY(-2px);
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09);
 }
 
 .menu li a:hover,
 .menu li.current a {
     transform: translateX(3px);
+    color: var(--accent-color);
 }
 
 .menu-social li a:hover {
     transform: translateY(-2px);
 }
 
+.article-list article {
+    border-radius: var(--card-border-radius);
+}
+
+.article-title {
+    line-height: 1.12;
+}
+
+.article-subtitle {
+    line-height: 1.72;
+    opacity: 0.92;
+}
+
+.article-meta {
+    letter-spacing: -0.01em;
+}
+
 .article-content {
     line-height: 1.85;
+    font-size: 1.02rem;
 }
 
 .article-content > h2,
@@ -96,8 +178,55 @@ html {
     scroll-margin-top: 1.5rem;
 }
 
+.article-content > h2 {
+    margin-top: 2.8rem;
+    font-size: 1.9rem;
+}
+
+.article-content > h3 {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+}
+
+.article-content > p,
+.article-content > ul,
+.article-content > ol,
+.article-content > blockquote {
+    max-width: 70ch;
+}
+
 .article-content :not(pre) > code {
     border-radius: 6px;
+    padding: 0.14rem 0.38rem;
+    background: rgba(var(--accent-color-darker), 0.08);
+}
+
+.highlight,
+.article-content pre {
+    border-radius: 16px;
+}
+
+.search-form input {
+    font-family: var(--ash-sans);
+}
+
+.search-form input:focus {
+    box-shadow: 0 0 0 4px rgba(var(--accent-color-darker), 0.08);
+}
+
+.tagCloud-tags a:hover,
+.article-tags a:hover {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .home-intro .article-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .article-content {
+        font-size: 0.98rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
