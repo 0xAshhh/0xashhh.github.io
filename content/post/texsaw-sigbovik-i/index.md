@@ -1,12 +1,13 @@
 ---
 title: "TexSAW 2026: SIGBOVIK I"
-description: "Reconstructed Codex writeup for SIGBOVIK I from TexSAW 2026. Original prompt weight: 371 points."
+description: "Writeup for SIGBOVIK I from TexSAW 2026. Challenge weight: 371 points."
 slug: texsaw-sigbovik-i
 date: 2026-03-28 07:48:34.175+0000
+competition: "TexSAW 2026"
 categories:
     - Binary Exploitation
 tags:
-    - codex-archive
+    - writeup
     - texsaw-2026
     - sigbovik-i
 ---
@@ -18,12 +19,6 @@ tags:
 - Category: `Binary Exploitation`
 - Points: `371`
 - Original target(s): [https://www.charles.systems/publications/SCROP.pdf](https://www.charles.systems/publications/SCROP.pdf)
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge SIGBOVIK I Written by charles nc 143.198.163.4 1900 Flag format: texsaw{example_flag}
 
 
 ## Solve Path

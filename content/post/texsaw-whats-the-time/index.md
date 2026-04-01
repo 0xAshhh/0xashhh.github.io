@@ -1,12 +1,13 @@
 ---
 title: "TexSAW 2026: What's the Time?"
-description: "Reconstructed Codex writeup for What's the Time? from TexSAW 2026. Original prompt weight: 331 points."
+description: "Writeup for What's the Time? from TexSAW 2026. Challenge weight: 331 points."
 slug: texsaw-whats-the-time
 date: 2026-03-27 19:46:53.061+0000
+competition: "TexSAW 2026"
 categories:
     - Binary Exploitation
 tags:
-    - codex-archive
+    - writeup
     - texsaw-2026
     - what's-the-time?
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `What's the Time?`
 - Category: `Binary Exploitation`
 - Points: `331`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Whats the Time? Written by kaber I think one of the hands of my watch broke. Can you tell me what the time is? nc 143.198.163.4 3000 Flag format: texsaw{flag} ex: texsaw{flag}
 
 
 ## Solve Path

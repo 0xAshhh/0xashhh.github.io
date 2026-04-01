@@ -36,7 +36,7 @@ ITEMS = [
         "competition": "SUCTF 2026",
         "competition_url": "https://ctftime.org/event/3161/",
         "challenge": "SU_theif",
-        "category": "AI Security",
+        "category": "Model Exploitation",
         "needle": "SUCTF{n0t_4ll_h1st0ry_t3lls_th3_truth_6a4e2b8d}",
     },
     {
@@ -441,9 +441,9 @@ def parse_prompt(prompt: str) -> dict:
 
 
 def description_for(item: dict, prompt_meta: dict) -> str:
-    base = f"Reconstructed Codex writeup for {item['challenge']} from {item['competition']}."
+    base = f"Writeup for {item['challenge']} from {item['competition']}."
     if prompt_meta["points"]:
-        base += f" Original prompt weight: {prompt_meta['points']} points."
+        base += f" Challenge weight: {prompt_meta['points']} points."
     return base
 
 
@@ -477,14 +477,12 @@ def build_post(item: dict, prompt: str, prompt_meta: dict, session_meta: dict, t
     if challenge_links:
         challenge_lines.append(f"- Original target(s): {', '.join(f'[{url}]({url})' for url in challenge_links[:3])}")
 
-    prompt_excerpt = prompt_meta["excerpt"] or item.get("prompt_fallback", "")
     image_caption = item.get("image_caption")
     image_dest = item.get("image_dest")
     image_block = f"![{image_caption}]({image_dest})\n" if image_dest and image_caption and (POST_ROOT / item["slug"] / image_dest).exists() else ""
 
     body = sanitize_markdown(text, asset_map)
 
-    prompt_block = f"Prompt snapshot: {prompt_excerpt}" if prompt_excerpt else ""
     image_block = f"![{image_caption}]({image_dest})\n" if image_dest and image_caption and (POST_ROOT / item["slug"] / image_dest).exists() else ""
 
     return f"""---
@@ -492,10 +490,11 @@ title: "{item['title']}"
 description: "{description_for(item, prompt_meta)}"
 slug: {item['slug']}
 date: {date_value}
+competition: "{item['competition']}"
 categories:
     - {item['category']}
 tags:
-    - codex-archive
+    - writeup
     - {item['competition'].lower().replace(' ', '-')}
     - {item['challenge'].lower().replace(' ', '-').replace('_', '-')}
 ---
@@ -503,12 +502,6 @@ tags:
 ## Challenge
 
 {chr(10).join(challenge_lines)}
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-{prompt_block}
 
 {image_block}
 ## Solve Path
@@ -548,7 +541,7 @@ def write_index(generated: list[dict]) -> None:
         "---",
         'title: "Writeups"',
         'slug: "writeups"',
-        'description: "Recovered Codex archive of locally solved challenges, organized by competition."',
+        'description: "Challenge writeups and solve notes organized by competition."',
         'layout: "writeups"',
         "menu:",
         "    main:",
@@ -559,14 +552,14 @@ def write_index(generated: list[dict]) -> None:
         "",
         "# Writeups",
         "",
-        f"This archive currently exposes `{len(generated)}` reconstructed posts pulled directly from local Codex solve sessions and challenge artifacts in this workspace.",
+        f"This archive currently exposes `{len(generated)}` published writeups collected from solved challenges and preserved notes.",
         "",
         "The cards below are generated from the live post collection, so anything published into the archive appears here automatically.",
         "",
         "## Notes",
         "",
-        "- Every post in this archive is derived from a local Codex session log, a local artifact bundle, or both.",
-        "- External competition links are provided only to identify the event. The exploit chains themselves are reconstructed from your local history.",
+        "- Every post in this archive is grounded in local files, saved solve notes, or both.",
+        "- External competition links are provided only to identify the event and challenge.",
         "- Use [Archives](/archives/) for chronological browsing and [Search](/search/) if you want to jump by challenge title.",
         "",
     ]

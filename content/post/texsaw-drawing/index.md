@@ -1,12 +1,13 @@
 ---
 title: "TexSAW 2026: drawing"
-description: "Reconstructed Codex writeup for drawing from TexSAW 2026. Original prompt weight: 379 points."
+description: "Writeup for drawing from TexSAW 2026. Challenge weight: 379 points."
 slug: texsaw-drawing
 date: 2026-03-27 19:33:54.127+0000
+competition: "TexSAW 2026"
 categories:
     - Reverse Engineering
 tags:
-    - codex-archive
+    - writeup
     - texsaw-2026
     - drawing
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `drawing`
 - Category: `Reverse Engineering`
 - Points: `379`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge drawing drawing be like Flag format: texsaw{flag} ex: texsaw{orthogonal}
 
 
 ## Solve Path

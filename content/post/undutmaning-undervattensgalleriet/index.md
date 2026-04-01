@@ -1,12 +1,13 @@
 ---
 title: "Undutmaning 2026: Undervattensgalleriet"
-description: "Reconstructed Codex writeup for Undervattensgalleriet from Undutmaning 2026. Original prompt weight: 100 points."
+description: "Writeup for Undervattensgalleriet from Undutmaning 2026. Challenge weight: 100 points."
 slug: undutmaning-undervattensgalleriet
 date: 2026-03-21 19:57:03.586+0000
+competition: "Undutmaning 2026"
 categories:
     - Web Exploitation
 tags:
-    - codex-archive
+    - writeup
     - undutmaning-2026
     - undervattensgalleriet
 ---
@@ -18,12 +19,6 @@ tags:
 - Category: `Web Exploitation`
 - Points: `100`
 - Original target(s): [https://undervattensgalleriet.challs.undutmaning.se](https://undervattensgalleriet.challs.undutmaning.se)
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge Undervattensgalleriet medel web Det är få saker som oceanografer gillar så mycket som snygga bilder av fiskar i motljus! Även på havets botten finns tydligen behov av att dela med sig av fina bilder. Forskaren och (aspirerande hemmakodaren) Göran Gädda har därför...
 
 
 ## Solve Path

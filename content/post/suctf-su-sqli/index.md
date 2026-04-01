@@ -1,12 +1,13 @@
 ---
 title: "SUCTF 2026: SU_sqli"
-description: "Reconstructed Codex writeup for SU_sqli from SUCTF 2026."
+description: "Writeup for SU_sqli from SUCTF 2026."
 slug: suctf-su-sqli
 date: 2026-03-14 04:57:15.406+0000
+competition: "SUCTF 2026"
 categories:
     - Web Exploitation
 tags:
-    - codex-archive
+    - writeup
     - suctf-2026
     - su-sqli
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `SU_sqli`
 - Category: `Web Exploitation`
 - Original target(s): [http://101.245.108.250:10001/](http://101.245.108.250:10001/), [http://101.245.108.250:10002/](http://101.245.108.250:10002/), [http://101.245.108.250:10003/](http://101.245.108.250:10003/)
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: SU_sqli 259PT Web Zhou discovered a SQL injection vulnerability. Are you able to compromise the target? 请输入题目Flag
 
 
 ## Solve Path

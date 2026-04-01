@@ -1,8 +1,9 @@
 ---
 title: "HTB Cyber Apocalypse: Regularity"
-description: "A local Codex pwn solve using a direct RIP overwrite, a `jmp rsi` pivot, and position-independent shellcode to print `flag.txt`."
+description: "Writeup for a pwn challenge using a direct RIP overwrite, a `jmp rsi` pivot, and position-independent shellcode to print `flag.txt`."
 slug: htb-regularity
 date: 2026-02-10 14:18:00+0300
+competition: "HTB Cyber Apocalypse"
 categories:
     - Binary Exploitation
 tags:
@@ -14,7 +15,7 @@ tags:
 
 ## Challenge
 
-`Regularity` was a terminal pwn task running on `154.57.164.80:30663`. The local files contained a single static 64-bit ELF named `regularity`, and the final solve was archived in the Codex session log.
+`Regularity` was a terminal pwn task running on `154.57.164.80:30663`. The local files contained a single static 64-bit ELF named `regularity`, and the final solve script was preserved with the challenge files.
 
 Scenario prompt:
 

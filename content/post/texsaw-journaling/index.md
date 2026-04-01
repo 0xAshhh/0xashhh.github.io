@@ -1,12 +1,13 @@
 ---
 title: "TexSAW 2026: Journaling"
-description: "Reconstructed Codex writeup for Journaling from TexSAW 2026. Original prompt weight: 366 points."
+description: "Writeup for Journaling from TexSAW 2026. Challenge weight: 366 points."
 slug: texsaw-journaling
 date: 2026-03-27 20:04:30.869+0000
+competition: "TexSAW 2026"
 categories:
     - Forensics
 tags:
-    - codex-archive
+    - writeup
     - texsaw-2026
     - journaling
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `Journaling`
 - Category: `Forensics`
 - Points: `366`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge Journaling Written by Wulfyrn I was using this Windows machine for journaling and notetaking, but I think malware got onto it. Can you take a look and put together any evidence left on disk? Note 1: Sufficient information is provided to figure out the order of flag...
 
 
 ## Solve Path

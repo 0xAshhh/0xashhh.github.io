@@ -1,12 +1,13 @@
 ---
 title: "0xV01D OSINT: Lucy EXIF Elephant"
-description: "Reconstructed Codex writeup for lucy-exif-elephant from 0xV01D OSINT Lab."
+description: "Writeup for lucy-exif-elephant from 0xV01D OSINT Lab."
 slug: 0xv01d-lucy-exif-elephant
 date: 2026-03-18 00:30:55.081+0000
+competition: "0xV01D OSINT Lab"
 categories:
     - OSINT
 tags:
-    - codex-archive
+    - writeup
     - 0xv01d-osint-lab
     - lucy-exif-elephant
 ---
@@ -16,12 +17,6 @@ tags:
 - Competition: `0xV01D OSINT Lab`
 - Challenge: `lucy-exif-elephant`
 - Category: `OSINT`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: حللي السؤال الاونست الموجود هون معاه طريقه حل C:\Users\anas\Desktop\osint2\easy\lucy-exif-elephant اعطيني الفلاج النهائي مع كل الروابط الي دخلتها
 
 ![Original challenge image](mystery_elephant.jpg)
 

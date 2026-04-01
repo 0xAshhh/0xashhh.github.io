@@ -1,12 +1,13 @@
 ---
 title: "SUCTF 2026: SU_CyberTrack"
-description: "Reconstructed Codex writeup for SU_CyberTrack from SUCTF 2026."
+description: "Writeup for SU_CyberTrack from SUCTF 2026."
 slug: suctf-su-cybertrack
 date: 2026-03-15 09:08:18.872+0000
+competition: "SUCTF 2026"
 categories:
     - OSINT
 tags:
-    - codex-archive
+    - writeup
     - suctf-2026
     - su-cybertrack
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `SU_CyberTrack`
 - Category: `OSINT`
 - Original target(s): [https://evanlin-suctf.github.io/](https://evanlin-suctf.github.io/)
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: SU_CyberTrack 800PT Misc Site Description The internet remembers more than people expect.
 
 
 ## Solve Path

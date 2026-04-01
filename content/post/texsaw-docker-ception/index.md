@@ -1,12 +1,13 @@
 ---
 title: "TexSAW 2026: Docker-ception"
-description: "Reconstructed Codex writeup for Docker-ception from TexSAW 2026. Original prompt weight: 100 points."
+description: "Writeup for Docker-ception from TexSAW 2026. Challenge weight: 100 points."
 slug: texsaw-docker-ception
 date: 2026-03-27 20:18:36.453+0000
+competition: "TexSAW 2026"
 categories:
     - Web Exploitation
 tags:
-    - codex-archive
+    - writeup
     - texsaw-2026
     - docker-ception
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `Docker-ception`
 - Category: `Web Exploitation`
 - Points: `100`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge Docker-ception Written by WatTheWat I built a cool tool for my networking class! I sure hope nothing bad can come from it! Flag format: texsaw{flag} ex: texsaw{Th1s_iS_n0t_th3_fl@g} tex1.watthewat.me
 
 
 ## Solve Path

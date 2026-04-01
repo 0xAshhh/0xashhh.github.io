@@ -1,12 +1,13 @@
 ---
 title: "SUCTF 2026: SU_Chronos_Ring"
-description: "Reconstructed Codex writeup for SU_Chronos_Ring from SUCTF 2026."
+description: "Writeup for SU_Chronos_Ring from SUCTF 2026."
 slug: suctf-su-chronos-ring
 date: 2026-03-14 14:42:01.132+0000
+competition: "SUCTF 2026"
 categories:
     - Binary Exploitation
 tags:
-    - codex-archive
+    - writeup
     - suctf-2026
     - su-chronos-ring
 ---
@@ -16,12 +17,6 @@ tags:
 - Competition: [SUCTF 2026](https://ctftime.org/event/3161/)
 - Challenge: `SU_Chronos_Ring`
 - Category: `Binary Exploitation`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: SU_Chronos_Ring 416PT Pwn a y no , pwn it plz nc 101.245.64.169 10000 (Please attack the target machine after the local EXP is successfully utilized
 
 
 ## Solve Path

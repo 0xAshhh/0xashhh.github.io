@@ -1,8 +1,9 @@
 ---
 title: "HTB Cyber Apocalypse: OmniWatch"
-description: "A local Codex solve chain combining cache poisoning, bot credential theft, firmware path traversal, JWT forgery, and SQL injection."
+description: "Writeup covering a full chain of cache poisoning, bot credential theft, firmware path traversal, JWT forgery, and SQL injection."
 slug: htb-omniwatch
 date: 2026-02-10 13:31:00+0300
+competition: "HTB Cyber Apocalypse"
 categories:
     - Web Exploitation
 tags:
@@ -18,7 +19,7 @@ tags:
 
 `OmniWatch` was provided locally with extracted source and a live target. The scenario asked for the last known location hidden behind the mercenary tracking panel at `154.57.164.82:31238`.
 
-This writeup is reconstructed from the local Codex solve session and the extracted challenge files, not from an external archive.
+This writeup is based on the extracted challenge files and the preserved exploit workflow.
 
 ## Attack Surface
 

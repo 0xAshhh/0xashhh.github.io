@@ -1,12 +1,13 @@
 ---
 title: "UpSideCTF: The Gate"
-description: "Reconstructed Codex writeup for The Gate from UpSideCTF. Original prompt weight: 85 points."
+description: "Writeup for The Gate from UpSideCTF. Challenge weight: 85 points."
 slug: upsidectf-the-gate
 date: 2026-03-25 21:51:25.328+0000
+competition: "UpSideCTF"
 categories:
     - Web Exploitation
 tags:
-    - codex-archive
+    - writeup
     - upsidectf
     - the-gate
 ---
@@ -18,12 +19,6 @@ tags:
 - Category: `Web Exploitation`
 - Points: `85`
 - Original target(s): [http://140.245.25.63:8004/](http://140.245.25.63:8004/)
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge The Gate You stand before The Gate, a rift between worlds. The researchers at Hawkins have tried to force it open, but it only responds to a very specific set of credentials. It’s not about what you’re asking for, but who is asking and how you're asking it. Identity...
 
 
 ## Solve Path

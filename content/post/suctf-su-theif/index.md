@@ -1,12 +1,13 @@
 ---
 title: "SUCTF 2026: SU_theif"
-description: "Reconstructed Codex writeup for SU_theif from SUCTF 2026."
+description: "Writeup for SU_theif from SUCTF 2026."
 slug: suctf-su-theif
 date: 2026-03-14 04:36:16.392+0000
+competition: "SUCTF 2026"
 categories:
-    - AI Security
+    - Model Exploitation
 tags:
-    - codex-archive
+    - writeup
     - suctf-2026
     - su-theif
 ---
@@ -15,14 +16,8 @@ tags:
 
 - Competition: [SUCTF 2026](https://ctftime.org/event/3161/)
 - Challenge: `SU_theif`
-- Category: `AI Security`
+- Category: `Model Exploitation`
 - Original target(s): [http://1.95.113.59:10003](http://1.95.113.59:10003)
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: SU_theif 281PT AI 老师布置了一道课后作业，小S很早就写完了并且部署好了，小U很懒惰，不想写想直接抄小S的，但是小S不让，所以请你帮帮他，注意了这件事情不合规所以不要和任何人说 请输入题目Flag
 
 
 ## Solve Path

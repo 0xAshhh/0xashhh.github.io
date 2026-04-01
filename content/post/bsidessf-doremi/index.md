@@ -1,12 +1,13 @@
 ---
 title: "BSidesSF CTF 2026: doremi"
-description: "Reconstructed Codex writeup for doremi from BSidesSF CTF 2026. Original prompt weight: 516 points."
+description: "Writeup for doremi from BSidesSF CTF 2026. Challenge weight: 516 points."
 slug: bsidessf-doremi
 date: 2026-03-21 20:44:50.834+0000
+competition: "BSidesSF CTF 2026"
 categories:
     - Mobile
 tags:
-    - codex-archive
+    - writeup
     - bsidessf-ctf-2026
     - doremi
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `doremi`
 - Category: `Mobile`
 - Points: `516`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge doremi Mobile 101 Can you find the flag on the app? Author: itsc0rg1
 
 
 ## Solve Path

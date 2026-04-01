@@ -1,8 +1,9 @@
 ---
 title: "HTB Cyber Apocalypse: Blueprint Heist"
-description: "A local Codex solve that chained wkhtmltopdf SSRF, PDF-based file read, JWT forgery, GraphQL SQLi, and EJS template execution."
+description: "Writeup covering a chain of wkhtmltopdf SSRF, PDF-based file read, JWT forgery, GraphQL SQLi, and EJS template execution."
 slug: htb-blueprint-heist
 date: 2026-02-10 15:09:00+0300
+competition: "HTB Cyber Apocalypse"
 categories:
     - Web Exploitation
 tags:
@@ -16,7 +17,7 @@ tags:
 
 ## Challenge
 
-`Blueprint Heist` asked for access to the ministry planning system behind `154.57.164.66:30234`. The local archive included the full Node application and the final Codex solve script, so the exploit path was easy to verify from first principles.
+`Blueprint Heist` asked for access to the ministry planning system behind `154.57.164.66:30234`. The local archive included the full Node application and the final exploit script, so the path was easy to verify from first principles.
 
 ## Attack Surface
 

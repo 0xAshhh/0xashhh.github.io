@@ -1,12 +1,13 @@
 ---
 title: "TexSAW 2026: Switcheroo Read"
-description: "Reconstructed Codex writeup for Switcheroo Read from TexSAW 2026. Original prompt weight: 361 points."
+description: "Writeup for Switcheroo Read from TexSAW 2026. Challenge weight: 361 points."
 slug: texsaw-switcheroo-read
 date: 2026-03-27 19:03:04.921+0000
+competition: "TexSAW 2026"
 categories:
     - Reverse Engineering
 tags:
-    - codex-archive
+    - writeup
     - texsaw-2026
     - switcheroo-read
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `Switcheroo Read`
 - Category: `Reverse Engineering`
 - Points: `361`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge Switcheroo Read Written by Ben Whoopsie, some wild functions started switching my string. Please determine a string to fit their confusion. Flag format: texsaw{string} ex: texsaw{confused_String}
 
 
 ## Solve Path

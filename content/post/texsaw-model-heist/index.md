@@ -1,12 +1,13 @@
 ---
 title: "TexSAW 2026: Model Heist"
-description: "Reconstructed Codex writeup for Model Heist from TexSAW 2026. Original prompt weight: 169 points."
+description: "Writeup for Model Heist from TexSAW 2026. Challenge weight: 169 points."
 slug: texsaw-model-heist
 date: 2026-03-27 20:05:34.142+0000
+competition: "TexSAW 2026"
 categories:
     - Binary Exploitation
 tags:
-    - codex-archive
+    - writeup
     - texsaw-2026
     - model-heist
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `Model Heist`
 - Category: `Binary Exploitation`
 - Points: `169`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge Model Heist Written by brig Neural networks are like onions - or was that ogres? Flag format: texsaw{flag}
 
 
 ## Solve Path

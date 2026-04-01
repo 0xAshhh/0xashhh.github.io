@@ -1,12 +1,13 @@
 ---
 title: "KalmarCTF 2026: RBG+"
-description: "Reconstructed Codex writeup for RBG+ from KalmarCTF 2026. Original prompt weight: 1000 points."
+description: "Writeup for RBG+ from KalmarCTF 2026. Challenge weight: 1000 points."
 slug: kalmarctf-rbg-plus
 date: 2026-03-27 17:05:43.087+0000
+competition: "KalmarCTF 2026"
 categories:
     - Cryptography
 tags:
-    - codex-archive
+    - writeup
     - kalmarctf-2026
     - rbg+
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `RBG+`
 - Category: `Cryptography`
 - Points: `1000`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge RBG+ crypto 0 0 RBG stands for RSA + SBG + LCG! To learn about them, please check out lecture1.mp4.
 
 
 ## Solve Path

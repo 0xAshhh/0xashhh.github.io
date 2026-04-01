@@ -1,12 +1,13 @@
 ---
 title: "BSidesSF CTF 2026: ghostcrypt"
-description: "Reconstructed Codex writeup for ghostcrypt from BSidesSF CTF 2026. Original prompt weight: 744 points."
+description: "Writeup for ghostcrypt from BSidesSF CTF 2026. Challenge weight: 744 points."
 slug: bsidessf-ghostcrypt
 date: 2026-03-21 20:44:35.085+0000
+competition: "BSidesSF CTF 2026"
 categories:
     - Cryptography
 tags:
-    - codex-archive
+    - writeup
     - bsidessf-ctf-2026
     - ghostcrypt
 ---
@@ -18,12 +19,6 @@ tags:
 - Category: `Cryptography`
 - Points: `744`
 - Original target(s): [https://ghostcrypt-2c7aa570.challenges.bsidessf.net/](https://ghostcrypt-2c7aa570.challenges.bsidessf.net/)
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge ghostcrypt Crypto We've summoned a new challenge for you. Hurry, find the flag, before it finds you! Author: symmetric
 
 
 ## Solve Path

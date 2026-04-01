@@ -1,12 +1,13 @@
 ---
 title: "KalmarCTF 2026: 0racle"
-description: "Reconstructed Codex writeup for 0racle from KalmarCTF 2026. Original prompt weight: 145 points."
+description: "Writeup for 0racle from KalmarCTF 2026. Challenge weight: 145 points."
 slug: kalmarctf-0racle
 date: 2026-03-27 19:48:40.957+0000
+competition: "KalmarCTF 2026"
 categories:
     - Reverse Engineering
 tags:
-    - codex-archive
+    - writeup
     - kalmarctf-2026
     - 0racle
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `0racle`
 - Category: `Reverse Engineering`
 - Points: `145`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge 0racle rev The truth is there, but you must know how to listen. The path reveals itself only to those who seek it.
 
 
 ## Solve Path

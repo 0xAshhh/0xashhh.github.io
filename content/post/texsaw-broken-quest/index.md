@@ -1,12 +1,13 @@
 ---
 title: "TexSAW 2026: Broken Quest"
-description: "Reconstructed Codex writeup for Broken Quest from TexSAW 2026. Original prompt weight: 464 points."
+description: "Writeup for Broken Quest from TexSAW 2026. Challenge weight: 464 points."
 slug: texsaw-broken-quest
 date: 2026-03-27 18:13:22.865+0000
+competition: "TexSAW 2026"
 categories:
     - Reverse Engineering
 tags:
-    - codex-archive
+    - writeup
     - texsaw-2026
     - broken-quest
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `Broken Quest`
 - Category: `Reverse Engineering`
 - Points: `464`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge Broken Quest Written by Wulfyrn These quest flags are totally just broken! I can't figure out how to complete the quest. Note: There's two ways to do this. Flag format: texsaw{example_flag}
 
 
 ## Solve Path

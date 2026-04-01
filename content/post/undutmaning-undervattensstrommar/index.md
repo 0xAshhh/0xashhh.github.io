@@ -1,12 +1,13 @@
 ---
 title: "Undutmaning 2026: Undervattensströmmar"
-description: "Reconstructed Codex writeup for Undervattensströmmar from Undutmaning 2026. Original prompt weight: 500 points."
+description: "Writeup for Undervattensströmmar from Undutmaning 2026. Challenge weight: 500 points."
 slug: undutmaning-undervattensstrommar
 date: 2026-03-21 11:01:06.497+0000
+competition: "Undutmaning 2026"
 categories:
     - Cryptography
 tags:
-    - codex-archive
+    - writeup
     - undutmaning-2026
     - undervattensströmmar
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `Undervattensströmmar`
 - Category: `Cryptography`
 - Points: `500`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Undervattensströmmar svår krypto Under en utflykt i de mer trasiga delarna av CASCADA har Harriet hittat ett USB-minne, märkt Viktigt!!!. Dra på trissor! Inte mindre än tre utropstecken, så det måste vara något i hästväg! Tyvärr är stickan illa åtgången och har minst ett...
 
 
 ## Solve Path

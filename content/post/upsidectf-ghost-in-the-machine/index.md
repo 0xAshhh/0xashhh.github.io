@@ -1,12 +1,13 @@
 ---
 title: "UpSideCTF: Ghost In The Machine"
-description: "Reconstructed Codex writeup for Ghost in the Machine from UpSideCTF. Original prompt weight: 40 points."
+description: "Writeup for Ghost in the Machine from UpSideCTF. Challenge weight: 40 points."
 slug: upsidectf-ghost-in-the-machine
 date: 2026-03-25 08:21:54.645+0000
+competition: "UpSideCTF"
 categories:
     - Misc
 tags:
-    - codex-archive
+    - writeup
     - upsidectf
     - ghost-in-the-machine
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `Ghost in the Machine`
 - Category: `Misc`
 - Points: `40`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: Challenge RECOVERED LOGS - HAWKINS NATIONAL LABORATORY We've breached the perimeter, but the real secrets are buried deep within the mainframe. Dr. Brenner has sealed the primary subject database behind an internal-only portal that doesn't recognize outside voices. However, a...
 
 
 ## Solve Path

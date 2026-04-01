@@ -1,12 +1,13 @@
 ---
 title: "SUCTF 2026: SU_babyAI"
-description: "Reconstructed Codex writeup for SU_babyAI from SUCTF 2026."
+description: "Writeup for SU_babyAI from SUCTF 2026."
 slug: suctf-su-babyai
 date: 2026-03-14 04:37:23.107+0000
+competition: "SUCTF 2026"
 categories:
     - Cryptography
 tags:
-    - codex-archive
+    - writeup
     - suctf-2026
     - su-babyai
 ---
@@ -16,12 +17,6 @@ tags:
 - Competition: [SUCTF 2026](https://ctftime.org/event/3161/)
 - Challenge: `SU_babyAI`
 - Category: `Cryptography`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: SU_babyAI 344PT AI It seems like something is missing. 请输入题目Flag
 
 
 ## Solve Path

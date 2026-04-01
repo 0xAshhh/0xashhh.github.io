@@ -1,12 +1,13 @@
 ---
 title: "SUCTF 2026: SU_evbuffer"
-description: "Reconstructed Codex writeup for SU_evbuffer from SUCTF 2026."
+description: "Writeup for SU_evbuffer from SUCTF 2026."
 slug: suctf-su-evbuffer
 date: 2026-03-14 04:58:01.286+0000
+competition: "SUCTF 2026"
 categories:
     - Binary Exploitation
 tags:
-    - codex-archive
+    - writeup
     - suctf-2026
     - su-evbuffer
 ---
@@ -16,12 +17,6 @@ tags:
 - Competition: [SUCTF 2026](https://ctftime.org/event/3161/)
 - Challenge: `SU_evbuffer`
 - Category: `Binary Exploitation`
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: SU_evbuffer 800PT Pwn ez evbuffer, pwn it 环境为 ubuntu:22.04 101.245.104.190 tcp 10000 udp 10010
 
 
 ## Solve Path

@@ -2,6 +2,7 @@
     {{- $posts := where .Site.RegularPages "Section" "post" -}}
     {{- $posts = $posts.ByDate.Reverse -}}
     {{- $latest := index $posts 0 -}}
+    {{- $groups := $posts.GroupByParam "competition" -}}
 
     <section class="writeups-archive">
         <div class="writeups-hero">
@@ -23,32 +24,43 @@
             </div>
         </div>
 
-        <section class="writeups-grid">
-            {{ range $posts }}
-                {{- $category := "" -}}
-                {{- with .Params.categories -}}
-                    {{- $category = index . 0 -}}
-                {{- end -}}
-                <article class="writeup-card">
-                    <a class="writeup-card__link" href="{{ .RelPermalink }}">
-                        <div class="writeup-card__meta">
-                            {{ with $category }}
-                                <span class="writeup-card__category">{{ . }}</span>
-                            {{ end }}
-                            <time class="writeup-card__date">{{ .Date.Format "02 Jan 2006" }}</time>
-                        </div>
+        {{ range $groups }}
+            <section class="writeups-section">
+                <div class="writeups-section__header">
+                    <div>
+                        <h2 class="writeups-section__title">{{ .Key }}</h2>
+                        <p class="writeups-section__count">{{ len .Pages }} writeups</p>
+                    </div>
+                </div>
 
-                        <h2 class="writeup-card__title">{{ .Title }}</h2>
+                <div class="writeups-grid">
+                    {{ range .Pages.ByDate.Reverse }}
+                        {{- $category := "" -}}
+                        {{- with .Params.categories -}}
+                            {{- $category = index . 0 -}}
+                        {{- end -}}
+                        <article class="writeup-card">
+                            <a class="writeup-card__link" href="{{ .RelPermalink }}">
+                                <div class="writeup-card__meta">
+                                    {{ with $category }}
+                                        <span class="writeup-card__category">{{ . }}</span>
+                                    {{ end }}
+                                    <time class="writeup-card__date">{{ .Date.Format "02 Jan 2006" }}</time>
+                                </div>
 
-                        {{ with .Description }}
-                            <p class="writeup-card__summary">{{ . }}</p>
-                        {{ else }}
-                            <p class="writeup-card__summary">{{ .Summary | plainify | truncate 180 }}</p>
-                        {{ end }}
-                    </a>
-                </article>
+                                <h3 class="writeup-card__title">{{ .Title }}</h3>
+
+                                {{ with .Description }}
+                                    <p class="writeup-card__summary">{{ . }}</p>
+                                {{ else }}
+                                    <p class="writeup-card__summary">{{ .Summary | plainify | truncate 180 }}</p>
+                                {{ end }}
+                            </a>
+                        </article>
+                    {{ end }}
+                </div>
+            </section>
             {{ end }}
-        </section>
     </section>
 
     {{- partial "footer/footer" . -}}

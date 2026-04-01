@@ -1,12 +1,13 @@
 ---
 title: "SUCTF 2026: SU_uri"
-description: "Reconstructed Codex writeup for SU_uri from SUCTF 2026."
+description: "Writeup for SU_uri from SUCTF 2026."
 slug: suctf-su-uri
 date: 2026-03-14 04:57:45.041+0000
+competition: "SUCTF 2026"
 categories:
     - Web Exploitation
 tags:
-    - codex-archive
+    - writeup
     - suctf-2026
     - su-uri
 ---
@@ -17,12 +18,6 @@ tags:
 - Challenge: `SU_uri`
 - Category: `Web Exploitation`
 - Original target(s): [http://101.245.108.250:10011/](http://101.245.108.250:10011/), [http://101.245.108.250:10012/](http://101.245.108.250:10012/), [http://101.245.108.250:10013/](http://101.245.108.250:10013/)
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: SU_uri 800PT Web Meng spotted a simple webhook. Are there any attack vectors here? 请输入题目Flag
 
 
 ## Solve Path

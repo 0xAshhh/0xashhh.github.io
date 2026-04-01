@@ -1,12 +1,13 @@
 ---
 title: "UpSideCTF: Mindflayer's Gambit"
-description: "Reconstructed Codex writeup for Mindflayer's Gambit from UpSideCTF. Original prompt weight: 130 points."
+description: "Writeup for Mindflayer's Gambit from UpSideCTF. Challenge weight: 130 points."
 slug: upsidectf-mindflayers-gambit
 date: 2026-03-26 00:50:35.741+0000
+competition: "UpSideCTF"
 categories:
     - Web Exploitation
 tags:
-    - codex-archive
+    - writeup
     - upsidectf
     - mindflayer's-gambit
 ---
@@ -18,12 +19,6 @@ tags:
 - Category: `Web Exploitation`
 - Points: `130`
 - Original target(s): [http://140.245.25.63:8002/](http://140.245.25.63:8002/), [http://140.245.25.63:8002/](http://140.245.25.63:8002/), [http://140.245.25.63:8002/](http://140.245.25.63:8002/)
-
-## Reconstruction Note
-
-This post is reconstructed from the local Codex session log and the challenge artifacts stored in this workspace.
-
-Prompt snapshot: › Challenge 1 Solve The Mindflayer's Gambit 0 0 The Mindflayer has taken control of the lab's security system and is forcing you to play a game of chess to regain access. The engine is set to
 
 
 ## Solve Path
