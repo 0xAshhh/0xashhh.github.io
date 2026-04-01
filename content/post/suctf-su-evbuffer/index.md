@@ -62,7 +62,7 @@ WRITEUP:
 - Local validation:
 ```text
 python3 ./solve.py LOCAL
-LOCALFLAG{test_flag}
+[local harness placeholder omitted]
 ```
 - Remote extraction:
 ```text

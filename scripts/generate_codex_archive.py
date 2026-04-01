@@ -4,6 +4,7 @@ import json
 import re
 import shutil
 from collections import defaultdict
+from datetime import datetime
 from pathlib import Path
 from textwrap import shorten
 
@@ -11,6 +12,7 @@ from textwrap import shorten
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CODEX_HOME = Path.home() / ".codex"
 SESSION_ROOTS = [CODEX_HOME / "sessions", CODEX_HOME / "archived_sessions"]
+HISTORY_PATH = CODEX_HOME / "history.jsonl"
 POST_ROOT = REPO_ROOT / "content" / "post"
 WRITEUPS_INDEX = REPO_ROOT / "content" / "page" / "writeups" / "index.md"
 
@@ -319,6 +321,231 @@ ITEMS = [
 ]
 
 
+CURATED_HISTORY_ITEMS = [
+    {
+        "sid": "019c530f-a7e4-7fd1-b89a-cc5d721cd425",
+        "slug": "0xfunctf-tony-toolkit",
+        "title": "0xFunCTF: Tony Toolkit",
+        "competition": "0xFunCTF",
+        "competition_url": "",
+        "challenge": "Tony Toolkit",
+        "category": "Web Exploitation",
+        "flag": "0xfun{T0ny'5_T00ly4rd._1_H0p3_Y0u_H4d_Fun_SQL1ng,_H45H_Cr4ck1ng,_4nd_W1th_C00k13_M4n1pu74t10n}",
+        "prompt_override": "Tony Toolkit\n500\nmedium\nhttp://chall.0xfun.org:11588",
+    },
+    {
+        "sid": "019c84da-4485-7fe0-85e5-9c2299aadb10",
+        "slug": "bkctf-appreciating-graphic-design",
+        "title": "BKCTF: Appreciating Graphic Design",
+        "competition": "BKCTF",
+        "competition_url": "",
+        "challenge": "Appreciating Graphic Design",
+        "category": "Misc",
+        "flag": "bkctf{4rt_h4z_l4y3rz_l1k3_0ni0n}",
+    },
+    {
+        "sid": "019c81c1-8726-7c51-8017-7248d766570c",
+        "slug": "bkctf-gotham-microsystems",
+        "title": "BKCTF: Gotham MicroSystems",
+        "competition": "BKCTF",
+        "competition_url": "",
+        "challenge": "Gotham MicroSystems",
+        "category": "Cryptography",
+        "flag": "bkctf{b4rb4r4_g0rd0ns_f4v0r1t3_4tt4ck}",
+    },
+    {
+        "sid": "019cc513-59ef-7c00-9f59-2f4d01883c9c",
+        "slug": "bkctf-hello-agent",
+        "title": "BKCTF: Hello Agent",
+        "competition": "BKCTF",
+        "competition_url": "",
+        "challenge": "Hello Agent",
+        "category": "OSINT",
+        "flag": "bkctf{sup3rv3ryt074llyc00l}",
+    },
+    {
+        "sid": "019c7f85-9a6d-7543-a0ec-cac095cbe831",
+        "slug": "bkctf-speedrunning",
+        "title": "BKCTF: Speedrunning",
+        "competition": "BKCTF",
+        "competition_url": "",
+        "challenge": "Speedrunning",
+        "category": "Misc",
+        "flag": "bkctf{m1nc3dr4ft_m4nhunt_0n3_hunt3r}",
+    },
+    {
+        "sid": "019ca989-56fa-7d63-8d40-49a986c07d7f",
+        "slug": "cert-crypto-sanity-check-rotted",
+        "title": "CERT: Crypto Sanity Check - rotted",
+        "competition": "CERT",
+        "competition_url": "",
+        "challenge": "Crypto Sanity Check rotted",
+        "category": "Cryptography",
+        "flag": "CERT{symm37ric_r0747i0n}",
+    },
+    {
+        "sid": "019ca9bf-5a66-75d0-8c2d-c67077df463d",
+        "slug": "cert-span-sniff",
+        "title": "CERT: SPAN sniff",
+        "competition": "CERT",
+        "competition_url": "",
+        "challenge": "SPAN sniff",
+        "category": "Forensics",
+        "flag": "CERT{h1DD3n_1n_pl41n7eX7_n37Fl0w}",
+    },
+    {
+        "sid": "019cc4c3-32e5-7993-8f12-8e18afd8f7cc",
+        "slug": "jsec-wip-stage",
+        "title": "JSEC: Wip Stage",
+        "competition": "JSEC",
+        "competition_url": "",
+        "challenge": "Wip Stage",
+        "category": "Cryptography",
+        "flag": "JSEC{m3rs3nn3_tw1st3r_1s_n0t_s3cur3_3939}",
+    },
+    {
+        "sid": "019ce95a-cb76-75e2-8f3e-ecaba751643b",
+        "slug": "mctf-beneath-the-fourth-moon",
+        "title": "MCTF: Beneath the Fourth Moon",
+        "competition": "MCTF",
+        "competition_url": "",
+        "challenge": "Beneath the Fourth Moon",
+        "category": "Cryptography",
+        "flag": "MCTF{eb9b65f02ff7443a1b260247d90e36700b7a54a18446527dbdb8377d285f61a30c2564de1e42696e5826c92d95f41eae8f1f8769aeeecbf46bc98689c893615a}",
+    },
+    {
+        "sid": "019c9f4f-7a36-78a3-ad1b-34fd964520ed",
+        "slug": "uvt-satellua",
+        "title": "UVT: satellua",
+        "competition": "UVT",
+        "competition_url": "",
+        "challenge": "satellua",
+        "category": "Reverse Engineering",
+        "flag": "UVT{R3turn_8y_Thr0w_Del1v3r3r}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-qrecreate",
+        "title": "UTCTF 2026: QRecreate",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "QRecreate",
+        "category": "Misc",
+        "flag": "utflag{s3cr3ts_@re_@lw@ys_w1th1n_s3cr3ts}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-silent-archive",
+        "title": "UTCTF 2026: Silent Archive",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Silent Archive",
+        "category": "Forensics",
+        "flag": "utflag{d1ff_th3_tw1ns_unt4r_th3_st0rm_r34d_th3_wh1t3sp4c3}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-half-awake",
+        "title": "UTCTF 2026: Half Awake",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Half Awake",
+        "category": "Forensics",
+        "flag": "utflag{h4lf_aw4k3_s33_th3_pr0t0c0l_tr1ck}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-cold-workspace",
+        "title": "UTCTF 2026: Cold Workspace",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Cold Workspace",
+        "category": "Forensics",
+        "flag": "utflag{m3m0ry_r3t41ns_wh4t_d1sk_l053s}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-fortune-teller",
+        "title": "UTCTF 2026: Fortune Teller",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Fortune Teller",
+        "category": "Cryptography",
+        "flag": "utflag{pr3d1ct_th3_futur3_lcg}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-hidden-in-plain-sight",
+        "title": "UTCTF 2026: Hidden in Plain Sight",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Hidden in Plain Sight",
+        "category": "Misc",
+        "flag": "utflag{1nv1s1bl3_un1c0d3}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-jail-break",
+        "title": "UTCTF 2026: Jail Break",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Jail Break",
+        "category": "Misc",
+        "flag": "utflag{py_ja1l_3sc4p3_m4st3r}",
+    },
+    {
+        "sid": "019ce537-ccfe-77b2-b035-32bda09fc434",
+        "slug": "utctf-landfall",
+        "title": "UTCTF 2026: Landfall",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Landfall",
+        "category": "Forensics",
+        "flag": "utflag{4774ck3r5_h4v3_m4d3_l4ndf4ll}",
+    },
+    {
+        "sid": "019ce537-ccfe-77b2-b035-32bda09fc434",
+        "slug": "utctf-landfall-missing-link",
+        "title": "UTCTF 2026: Landfall Missing Link",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Landfall Missing Link",
+        "category": "Forensics",
+        "flag": "utflag{pr1v473_3y3-m1551n6_l1nk}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-last-byte-standing",
+        "title": "UTCTF 2026: Last Byte Standing",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Last Byte Standing",
+        "category": "Forensics",
+        "flag": "utflag{d1g_t0_th3_l4st_byt3}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-oblivious-error",
+        "title": "UTCTF 2026: Oblivious Error",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Oblivious Error",
+        "category": "Cryptography",
+        "flag": "utflag{my_obl1v10u5_fr13nd_ru1n3d_my_c0de}",
+    },
+    {
+        "sid": "019ce4b8-22de-7672-bc00-91eccfa0ed6a",
+        "slug": "utctf-smooth-criminal",
+        "title": "UTCTF 2026: Smooth Criminal",
+        "competition": "UTCTF 2026",
+        "competition_url": "",
+        "challenge": "Smooth Criminal",
+        "category": "Cryptography",
+        "flag": "utflag{sm00th_cr1m1nal_caught}",
+    },
+]
+
+
 HTB_POSTS = [
     ("HTB Cyber Apocalypse: Regularity", "/p/htb-regularity/"),
     ("HTB Cyber Apocalypse: Blueprint Heist", "/p/htb-blueprint-heist/"),
@@ -361,6 +588,116 @@ def load_messages(path: Path) -> tuple[list[str], list[str], dict]:
             users.append(text)
 
     return assistants, users, session_meta
+
+
+def load_assistant_records(path: Path) -> tuple[list[dict], dict]:
+    assistants: list[dict] = []
+    session_meta: dict = {}
+
+    for line in path.open("r", encoding="utf-8"):
+        obj = json.loads(line)
+        if obj.get("type") == "session_meta":
+            session_meta = obj.get("payload", {})
+        if obj.get("type") != "response_item":
+            continue
+        payload = obj.get("payload", {})
+        if payload.get("type") != "message" or payload.get("role") != "assistant":
+            continue
+        text = "\n".join(
+            (part.get("text") or part.get("content") or "")
+            for part in payload.get("content", [])
+        ).strip()
+        if not text:
+            continue
+        assistants.append(
+            {
+                "timestamp": obj.get("timestamp", ""),
+                "text": text,
+            }
+        )
+
+    return assistants, session_meta
+
+
+def load_history_by_sid() -> dict[str, list[dict]]:
+    history_by_sid: dict[str, list[dict]] = defaultdict(list)
+    if not HISTORY_PATH.exists():
+        return history_by_sid
+
+    with HISTORY_PATH.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            obj = json.loads(line)
+            sid = obj.get("session_id")
+            if not sid:
+                continue
+            history_by_sid[sid].append(
+                {
+                    "ts": int(obj.get("ts", 0)),
+                    "text": obj.get("text", ""),
+                }
+            )
+
+    for sid in history_by_sid:
+        history_by_sid[sid].sort(key=lambda item: item["ts"])
+
+    return history_by_sid
+
+
+def prompt_seed_candidates(history_items: list[dict]) -> list[dict]:
+    candidates: list[dict] = []
+    previous_norm = ""
+
+    for item in history_items:
+        text = item["text"].strip()
+        if not text:
+            continue
+        if text.startswith("# AGENTS") or text.startswith("<environment_context>"):
+            continue
+        normalized = re.sub(r"\s+", " ", text)
+        if normalized == previous_norm:
+            continue
+        if len(text) < 18:
+            continue
+        if text.lower() in {"challenge", "flag", "download", "downloads"}:
+            continue
+
+        score = 0
+        if "\n" in text:
+            score += 1
+        if re.search(r"\b(solves?|points?|easy|medium|hard|crypto|pwn|misc|web|osint|forensics|rev|mobile)\b", text, re.I):
+            score += 2
+        if re.search(r"https?://|[A-Za-z]:\\", text):
+            score += 1
+        if re.search(r"Challenge|Downloads?|Flag|0 حل", text, re.I):
+            score += 1
+        if len(text) > 80:
+            score += 1
+        if score < 2:
+            continue
+
+        candidates.append(item)
+        previous_norm = normalized
+
+    return candidates
+
+
+def choose_history_prompt(history_items: list[dict], assistant_timestamp: str) -> str:
+    if not history_items or not assistant_timestamp:
+        return ""
+
+    target_ts = int(datetime.fromisoformat(assistant_timestamp.replace("Z", "+00:00")).timestamp())
+    candidates = [item for item in prompt_seed_candidates(history_items) if item["ts"] <= target_ts]
+    if not candidates:
+        return ""
+    return candidates[-1]["text"]
+
+
+def choose_assistant_record(records: list[dict], flag: str) -> dict:
+    matches = [record for record in records if flag in record["text"]]
+    if not matches:
+        raise ValueError(f"Could not find assistant message containing {flag!r}")
+    matches.sort(key=lambda record: (len(record["text"]), record["timestamp"]), reverse=True)
+    return matches[0]
 
 
 def choose_text(assistant_messages: list[str], needle: str) -> str:
@@ -510,8 +847,14 @@ tags:
 """
 
 
+def count_published_posts() -> int:
+    return sum(1 for path in POST_ROOT.iterdir() if path.is_dir() and (path / "index.md").exists())
+
+
 def generate_posts() -> list[dict]:
+    history_by_sid = load_history_by_sid()
     generated: list[dict] = []
+
     for item in ITEMS:
         session_path = find_session_path(item["sid"])
         assistants, users, session_meta = load_messages(session_path)
@@ -533,10 +876,33 @@ def generate_posts() -> list[dict]:
                 "prompt_meta": prompt_meta,
             }
         )
+
+    for item in CURATED_HISTORY_ITEMS:
+        session_path = find_session_path(item["sid"])
+        assistant_records, session_meta = load_assistant_records(session_path)
+        chosen_record = choose_assistant_record(assistant_records, item["flag"])
+        prompt = item.get("prompt_override") or choose_history_prompt(history_by_sid.get(item["sid"], []), chosen_record["timestamp"])
+        prompt_meta = parse_prompt(prompt)
+
+        post_dir = POST_ROOT / item["slug"]
+        post_dir.mkdir(parents=True, exist_ok=True)
+
+        content = build_post(item, prompt, prompt_meta, session_meta, chosen_record["text"], {})
+        (post_dir / "index.md").write_text(content, encoding="utf-8")
+
+        generated.append(
+            {
+                **item,
+                "date": session_meta.get("timestamp") or session_meta.get("updated_at") or "",
+                "prompt_meta": prompt_meta,
+            }
+        )
+
     return generated
 
 
 def write_index(generated: list[dict]) -> None:
+    archive_count = count_published_posts()
     lines = [
         "---",
         'title: "Writeups"',
@@ -552,7 +918,7 @@ def write_index(generated: list[dict]) -> None:
         "",
         "# Writeups",
         "",
-        f"This archive currently exposes `{len(generated)}` published writeups collected from solved challenges and preserved notes.",
+        f"This archive currently exposes `{archive_count}` published writeups collected from solved challenges and preserved notes.",
         "",
         "The cards below are generated from the live post collection, so anything published into the archive appears here automatically.",
         "",
