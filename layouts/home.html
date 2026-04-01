@@ -6,42 +6,49 @@
     <div class="ash-home">
         <section class="ash-hero">
             <div class="ash-hero__glow"></div>
-            <p class="ash-kicker">0xAsh // Digital Lab</p>
-            <h1>Binary exploitation, reverse engineering, and live challenge research.</h1>
-            <p class="ash-lead">A dark archive of local Codex solves, active discoveries, and exploit paths reconstructed from the lab.</p>
-            <div class="ash-actions">
-                <a class="ash-button" href="{{ "/writeups/" | relURL }}">Open Writeups</a>
-                <a class="ash-button ash-button--ghost" href="{{ "/discoveries/" | relURL }}">Research Notes</a>
-            </div>
-            <div class="ash-status">
-                <span class="ash-status__label">status</span>
-                <span class="ash-status__value">tracking buffers, symbols, and broken trust boundaries<span class="ash-cursor"></span></span>
+            <div class="ash-hero__content">
+                <p class="ash-kicker">Security Lab</p>
+                <h1>0xAsh</h1>
+                <p class="ash-lead">Local writeups, exploit notes, and reverse engineering sessions, cleaned up and easy to browse.</p>
+                <div class="ash-hero__focus">
+                    <span>Binary Exploitation</span>
+                    <span>Reverse Engineering</span>
+                    <span>CTF Writeups</span>
+                </div>
+                <div class="ash-actions">
+                    <a class="ash-button" href="{{ "/writeups/" | relURL }}">Open Writeups</a>
+                    <a class="ash-button ash-button--ghost" href="{{ "/discoveries/" | relURL }}">Research Notes</a>
+                </div>
+                <div class="ash-status">
+                    <span class="ash-status__label">status</span>
+                    <span class="ash-status__value">reviewing crashes, challenge traces, and solve paths<span class="ash-cursor"></span></span>
+                </div>
             </div>
         </section>
 
         <section class="ash-panel">
             <div class="ash-panel__head">
                 <div>
-                    <p class="ash-eyebrow">Tracks</p>
-                    <h2>Core lanes</h2>
+                    <p class="ash-eyebrow">Focus Areas</p>
+                    <h2>Main lanes</h2>
                 </div>
-                <a class="ash-inline-link" href="{{ "/archives/" | relURL }}">Open archive</a>
+                <a class="ash-inline-link" href="{{ "/archives/" | relURL }}">Browse archive</a>
             </div>
             <div class="ash-track-grid">
                 <a class="ash-track" href="{{ "/categories/binary-exploitation/" | relURL }}">
                     <span class="ash-track__label">01</span>
                     <h3>Binary Exploitation</h3>
-                    <p>Stack corruption, shellcode pivots, memory layouts, and exploit reliability notes.</p>
+                    <p>Memory corruption, shellcode pivots, stack control, and exploit reliability notes.</p>
                 </a>
                 <a class="ash-track" href="{{ "/discoveries/" | relURL }}">
                     <span class="ash-track__label">02</span>
                     <h3>Reverse Engineering</h3>
-                    <p>Behavior triage, binary internals, protocol tracing, and active reversing fragments.</p>
+                    <p>Behavior tracing, binary internals, protocol analysis, and shorter reversing notes.</p>
                 </a>
                 <a class="ash-track" href="{{ "/categories/web-exploitation/" | relURL }}">
                     <span class="ash-track__label">03</span>
-                    <h3>Web And Challenge Research</h3>
-                    <p>Source-guided exploit chains, trust-boundary breaks, and reconstructed solve paths.</p>
+                    <h3>Web Research</h3>
+                    <p>Source-driven exploit chains, trust-boundary breaks, and challenge reconstruction.</p>
                 </a>
             </div>
         </section>
@@ -49,10 +56,10 @@
         <section class="ash-panel">
             <div class="ash-panel__head">
                 <div>
-                    <p class="ash-eyebrow">Featured Work</p>
-                    <h2>Recent solved sessions</h2>
+                    <p class="ash-eyebrow">Recent Writeups</p>
+                    <h2>Latest solved sessions</h2>
                 </div>
-                <a class="ash-inline-link" href="{{ "/writeups/" | relURL }}">View all writeups</a>
+                <a class="ash-inline-link" href="{{ "/writeups/" | relURL }}">All writeups</a>
             </div>
             <div class="ash-card-grid">
                 {{ range $featured }}
@@ -77,36 +84,14 @@
             </div>
         </section>
 
-        <section class="ash-panel">
-            <div class="ash-panel__head">
-                <div>
-                    <p class="ash-eyebrow">Lab Map</p>
-                    <h2>Where everything lives</h2>
-                </div>
-            </div>
-            <div class="ash-utility-grid">
-                <a class="ash-utility" href="{{ "/writeups/" | relURL }}">
-                    <h3>Writeups</h3>
-                    <p>Full challenge breakdowns with steps, commands, and final results from local solves.</p>
-                </a>
-                <a class="ash-utility" href="{{ "/discoveries/" | relURL }}">
-                    <h3>Discoveries</h3>
-                    <p>Shorter research lanes, odd behavior notes, and things still worth tearing apart.</p>
-                </a>
-                <a class="ash-utility" href="{{ "/search/" | relURL }}">
-                    <h3>Search</h3>
-                    <p>Jump straight into tags, topics, payloads, and archived challenge names.</p>
-                </a>
-            </div>
-        </section>
-
         <section class="ash-split-grid">
             <section class="ash-panel">
                 <div class="ash-panel__head">
                     <div>
-                        <p class="ash-eyebrow">Recently Updated</p>
-                        <h2>Latest logs</h2>
+                        <p class="ash-eyebrow">Latest Posts</p>
+                        <h2>Recent activity</h2>
                     </div>
+                    <a class="ash-inline-link" href="{{ "/search/" | relURL }}">Search</a>
                 </div>
                 <ul class="ash-log-list">
                     {{ range $posts }}
@@ -121,8 +106,38 @@
             <section class="ash-panel">
                 <div class="ash-panel__head">
                     <div>
+                        <p class="ash-eyebrow">Explore</p>
+                        <h2>Quick access</h2>
+                    </div>
+                </div>
+                <div class="ash-stack">
+                    <a class="ash-utility-link" href="{{ "/writeups/" | relURL }}">
+                        <div>
+                            <span class="ash-link-kicker">Collection</span>
+                            <h3>Writeups</h3>
+                        </div>
+                        <p>Full challenge breakdowns with commands, methodology, and final flags.</p>
+                    </a>
+                    <a class="ash-utility-link" href="{{ "/discoveries/" | relURL }}">
+                        <div>
+                            <span class="ash-link-kicker">Notes</span>
+                            <h3>Discoveries</h3>
+                        </div>
+                        <p>Shorter technical findings, odd behavior logs, and research fragments.</p>
+                    </a>
+                    <a class="ash-utility-link" href="{{ "/profiles/" | relURL }}">
+                        <div>
+                            <span class="ash-link-kicker">Contact</span>
+                            <h3>Profiles</h3>
+                        </div>
+                        <p>Personal accounts and public profile links gathered in one place.</p>
+                    </a>
+                </div>
+
+                <div class="ash-panel__head ash-panel__head--sub">
+                    <div>
                         <p class="ash-eyebrow">Profiles</p>
-                        <h2>Personal accounts</h2>
+                        <h2>Accounts</h2>
                     </div>
                 </div>
                 <ul class="ash-profile-list">
