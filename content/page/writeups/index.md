@@ -13,14 +13,19 @@ menu:
 
 This section collects writeups reconstructed from local Codex solves and the challenge files stored in this workspace.
 
-## Local Archive
+## By Category
+
+### Binary Exploitation
+
+- [HTB Cyber Apocalypse: Regularity](/p/htb-regularity/)
+
+### Web Exploitation
 
 - [HTB Cyber Apocalypse: Blueprint Heist](/p/htb-blueprint-heist/)
-- [HTB Cyber Apocalypse: Regularity](/p/htb-regularity/)
 - [HTB Cyber Apocalypse: OmniWatch](/p/htb-omniwatch/)
 
-## Focus
+## Notes
 
-- Web exploitation chains recovered from extracted source
-- Binary exploitation writeups from local solve sessions
-- Public notes generated from Codex's own archive
+- Every post here is based on local Codex solve sessions or extracted challenge files.
+- The homepage shows the latest writeups automatically.
+- Use [Archives](/archives/) for the chronological list and [Search](/search/) to jump by title or tag.

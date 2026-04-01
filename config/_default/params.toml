@@ -45,8 +45,8 @@ SortBy              = "default"
     card = "summary_large_image"
 
 [colorScheme]
-    toggle  = false
-    default = "dark"
+    toggle  = true
+    default = "auto"
 
 ## Comments
 [comments]
