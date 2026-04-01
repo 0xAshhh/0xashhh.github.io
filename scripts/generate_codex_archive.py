@@ -544,71 +544,32 @@ def generate_posts() -> list[dict]:
 
 
 def write_index(generated: list[dict]) -> None:
-    grouped: dict[str, list[dict]] = defaultdict(list)
-    for item in generated:
-        grouped[item["competition"]].append(item)
-
-    for items in grouped.values():
-        items.sort(key=lambda x: x["title"].lower())
-
     lines = [
         "---",
         'title: "Writeups"',
         'slug: "writeups"',
         'description: "Recovered Codex archive of locally solved challenges, organized by competition."',
+        'layout: "writeups"',
         "menu:",
         "    main:",
         "        weight: 1",
         "        params:",
-        "            icon: archives",
+            "            icon: archives",
         "---",
         "",
         "# Writeups",
         "",
         f"This archive currently exposes `{len(generated)}` reconstructed posts pulled directly from local Codex solve sessions and challenge artifacts in this workspace.",
         "",
-        "## By Competition",
+        "The cards below are generated from the live post collection, so anything published into the archive appears here automatically.",
+        "",
+        "## Notes",
+        "",
+        "- Every post in this archive is derived from a local Codex session log, a local artifact bundle, or both.",
+        "- External competition links are provided only to identify the event. The exploit chains themselves are reconstructed from your local history.",
+        "- Use [Archives](/archives/) for chronological browsing and [Search](/search/) if you want to jump by challenge title.",
         "",
     ]
-
-    for competition in COMPETITION_ORDER:
-        if competition == "HTB Cyber Apocalypse":
-            continue
-        items = grouped.get(competition)
-        if not items:
-            continue
-        url = items[0].get("competition_url", "")
-        heading = f"### [{competition}]({url})" if url else f"### {competition}"
-        lines.extend([heading, ""])
-        for item in items:
-            lines.append(
-                f"- [{item['title']}](/p/{item['slug']}/)  "
-                f"`{item['category']}`"
-            )
-        lines.append("")
-
-    lines.extend(
-        [
-            "### HTB Cyber Apocalypse",
-            "",
-            "Earlier local posts already on the site:",
-            "",
-        ]
-    )
-    for title, url in HTB_POSTS:
-        lines.append(f"- [{title}]({url})")
-
-    lines.extend(
-        [
-            "",
-            "## Notes",
-            "",
-            "- Every post in this archive is derived from a local Codex session log, a local artifact bundle, or both.",
-            "- External competition links are provided only to identify the event. The actual exploit chains are reconstructed from your local history.",
-            "- Use [Archives](/archives/) for chronological browsing and [Search](/search/) if you want to jump by challenge title.",
-            "",
-        ]
-    )
 
     WRITEUPS_INDEX.write_text("\n".join(lines), encoding="utf-8")
 

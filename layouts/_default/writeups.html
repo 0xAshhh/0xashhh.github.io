@@ -1,0 +1,59 @@
+{{ define "main" }}
+    {{- $posts := where .Site.RegularPages "Section" "post" -}}
+    {{- $posts = $posts.ByDate.Reverse -}}
+    {{- $latest := index $posts 0 -}}
+
+    <section class="writeups-archive">
+        <div class="writeups-hero">
+            <div class="writeups-hero__content">
+                {{ partial "article/components/content.html" . }}
+            </div>
+
+            <div class="writeups-hero__stats">
+                <div class="writeups-stat">
+                    <span class="writeups-stat__label">Published</span>
+                    <strong class="writeups-stat__value">{{ len $posts }}</strong>
+                </div>
+                {{ with $latest }}
+                    <div class="writeups-stat">
+                        <span class="writeups-stat__label">Latest</span>
+                        <strong class="writeups-stat__value">{{ .Date.Format "02 Jan 2006" }}</strong>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+
+        <section class="writeups-grid">
+            {{ range $posts }}
+                {{- $category := "" -}}
+                {{- with .Params.categories -}}
+                    {{- $category = index . 0 -}}
+                {{- end -}}
+                <article class="writeup-card">
+                    <a class="writeup-card__link" href="{{ .RelPermalink }}">
+                        <div class="writeup-card__meta">
+                            {{ with $category }}
+                                <span class="writeup-card__category">{{ . }}</span>
+                            {{ end }}
+                            <time class="writeup-card__date">{{ .Date.Format "02 Jan 2006" }}</time>
+                        </div>
+
+                        <h2 class="writeup-card__title">{{ .Title }}</h2>
+
+                        {{ with .Description }}
+                            <p class="writeup-card__summary">{{ . }}</p>
+                        {{ else }}
+                            <p class="writeup-card__summary">{{ .Summary | plainify | truncate 180 }}</p>
+                        {{ end }}
+                    </a>
+                </article>
+            {{ end }}
+        </section>
+    </section>
+
+    {{- partial "footer/footer" . -}}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}
