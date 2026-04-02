@@ -391,6 +391,27 @@ main.main {
     gap: 0.55rem;
 }
 
+.widget-recent-posts {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.widget-recent-posts li {
+    margin: 0;
+}
+
+.widget-recent-posts a {
+    color: var(--card-text-color-secondary);
+    line-height: 1.5;
+}
+
+.widget-recent-posts a:hover {
+    color: var(--card-text-color-main);
+}
+
 .tagCloud-tags a,
 .article-tags a,
 .article-category a {
@@ -435,6 +456,36 @@ main.main {
 
 .site-footer a {
     color: var(--card-text-color-secondary);
+}
+
+.home-intro {
+    @include panel;
+    padding: 1.25rem;
+}
+
+.home-intro .article-content {
+    margin: 0;
+}
+
+.home-intro .article-content > :first-child {
+    margin-top: 0;
+}
+
+.home-intro .article-content > :last-child {
+    margin-bottom: 0;
+}
+
+.home-intro .article-content h1 {
+    margin-bottom: 0.9rem;
+    color: var(--card-text-color-main);
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+}
+
+.home-intro .article-content p {
+    max-width: 64ch;
 }
 
 .home-shell,

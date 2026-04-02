@@ -1,163 +1,23 @@
 {{ define "main" }}
-    {{- $posts := where .Site.RegularPages "Section" "post" -}}
-    {{- $posts = $posts.ByDate.Reverse -}}
-    {{- $featured := first 3 $posts -}}
-    {{- $recent := first 6 $posts -}}
-    {{- $latest := index $posts 0 -}}
+    {{- $paginator := partial "helper/paginator.html" . -}}
 
-    <section class="home-shell">
-        <section class="home-hero">
-            <div class="home-hero__copy">
-                <p class="home-kicker">Security Research Blog</p>
-                <h1>{{ .Title }}</h1>
-
-                {{ with .Content }}
-                    <div class="home-hero__body article-content">
-                        {{ . }}
-                    </div>
-                {{ end }}
-
-                <div class="home-actions">
-                    <a class="home-action home-action--primary" href="/writeups/">Open Writeups</a>
-                    <a class="home-action" href="/discoveries/">Research Notes</a>
-                    <a class="home-action" href="/profiles/">Profiles</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="home-status">
-            <p class="home-status__line">
-                <span class="home-status__label">Status</span>
-                <span>{{ len $posts }} published writeups</span>
-                {{ with $latest }}
-                    <span>Latest: {{ .Date.Format "02 Jan 2006" }}</span>
-                {{ end }}
-                <span>Focus: Binary / Reverse / CTF</span>
-            </p>
-        </section>
-
-        <section class="home-toolbar">
-            <a class="home-search-link" href="/search/">Search writeups, competitions, categories, or solve notes</a>
-
-            <div class="home-chipset">
-                <a class="home-chip" href="/categories/binary-exploitation/">Binary Exploitation</a>
-                <a class="home-chip" href="/categories/reverse-engineering/">Reverse Engineering</a>
-                <a class="home-chip" href="/categories/web-exploitation/">Web Exploitation</a>
-                <a class="home-chip" href="/categories/forensics/">Forensics</a>
-            </div>
-        </section>
-
-        <section class="home-section">
-            <div class="home-section__header">
-                <div>
-                    <p class="home-label">Featured</p>
-                    <h2>Featured Work</h2>
-                    <p>The latest writeups, verified and ready to browse.</p>
-                </div>
-
-                <a class="home-section__link" href="/writeups/">Open archive</a>
-            </div>
-
-            <div class="home-featured-grid">
-                {{ range $featured }}
-                    {{- $category := "" -}}
-                    {{- with .Params.categories -}}
-                        {{- $category = index . 0 -}}
-                    {{- end -}}
-                    <article class="writeup-card">
-                        <a class="writeup-card__link" href="{{ .RelPermalink }}">
-                            <div class="writeup-card__meta">
-                                {{ with $category }}
-                                    <span class="writeup-card__category">{{ . }}</span>
-                                {{ end }}
-                                <time class="writeup-card__date">{{ .Date.Format "02 Jan 2006" }}</time>
-                            </div>
-
-                            <h3 class="writeup-card__title">{{ .Title }}</h3>
-
-                            {{ with .Description }}
-                                <p class="writeup-card__summary">{{ . }}</p>
-                            {{ else }}
-                                <p class="writeup-card__summary">{{ .Summary | plainify | truncate 170 }}</p>
-                            {{ end }}
-                        </a>
-                    </article>
-                {{ end }}
-            </div>
-        </section>
-
-        <section class="home-meta-grid">
-            <section class="home-section">
-                <div class="home-section__header">
-                    <div>
-                        <p class="home-label">Navigation</p>
-                        <h2>Lab Routes</h2>
-                        <p>Fast paths into the archive, research notes, and public profiles.</p>
-                    </div>
-                </div>
-
-                <div class="home-route-grid">
-                    <a class="home-route-card" href="/writeups/">
-                        <span class="home-route-card__eyebrow">Archive</span>
-                        <strong>Writeups</strong>
-                        <p>Challenge solutions with methodology, commands, proof, and final results.</p>
-                    </a>
-
-                    <a class="home-route-card" href="/discoveries/">
-                        <span class="home-route-card__eyebrow">Research</span>
-                        <strong>Discoveries</strong>
-                        <p>Smaller observations, reversing notes, and leads worth following.</p>
-                    </a>
-
-                    <a class="home-route-card" href="/profiles/">
-                        <span class="home-route-card__eyebrow">Contact</span>
-                        <strong>Profiles</strong>
-                        <p>Public accounts and the main places where this work is shared.</p>
-                    </a>
-
-                    <a class="home-route-card" href="/archives/">
-                        <span class="home-route-card__eyebrow">Timeline</span>
-                        <strong>Archives</strong>
-                        <p>Chronological browsing when you want the full posting history.</p>
-                    </a>
-                </div>
-            </section>
-
-            <section class="home-section">
-                <div class="home-section__header">
-                    <div>
-                        <p class="home-label">Updates</p>
-                        <h2>Recently Updated</h2>
-                        <p>The most recent writeups added to the site.</p>
-                    </div>
-                </div>
-
-                <div class="home-recent-list">
-                    {{ range $recent }}
-                        {{- $category := "" -}}
-                        {{- with .Params.categories -}}
-                            {{- $category = index . 0 -}}
-                        {{- end -}}
-                        <article class="home-recent-item">
-                            <a href="{{ .RelPermalink }}">
-                                <span class="home-recent-item__title">{{ .Title }}</span>
-
-                                <span class="home-recent-item__meta">
-                                    {{ with $category }}
-                                        <span>{{ . }}</span>
-                                    {{ end }}
-                                    <time>{{ .Date.Format "02 Jan 2006" }}</time>
-                                </span>
-                            </a>
-                        </article>
-                    {{ end }}
-                </div>
-            </section>
-        </section>
+    <section class="home-intro">
+        <div class="article-content">
+            <h1>{{ .Title }}</h1>
+            {{ .Content }}
+        </div>
     </section>
 
+    <section class="article-list">
+        {{ range $paginator.Pages }}
+            {{ partial "article-list/default" . }}
+        {{ end }}
+    </section>
+
+    {{- partial "pagination.html" . -}}
     {{- partial "footer/footer" . -}}
 {{ end }}
 
 {{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
 {{ end }}

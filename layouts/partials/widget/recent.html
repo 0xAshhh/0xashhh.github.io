@@ -1,0 +1,17 @@
+{{- $context := .Context -}}
+{{- $limit := default 5 .Params.limit -}}
+{{- $title := default "Recently Updated" .Params.title -}}
+{{- $pages := where $context.Site.RegularPages "Type" "in" $context.Site.Params.mainSections -}}
+{{- $pages = first $limit ($pages.ByDate.Reverse) -}}
+
+<section class="widget recent-posts">
+    <h2 class="widget-title section-title">{{ $title }}</h2>
+
+    <ul class="widget-recent-posts">
+        {{ range $pages }}
+            <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+        {{ end }}
+    </ul>
+</section>

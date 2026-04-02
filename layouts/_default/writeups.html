@@ -72,4 +72,5 @@
 {{ end }}
 
 {{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "archive") }}
 {{ end }}

@@ -34,9 +34,13 @@ SortBy              = "default"
 [widgets]
     homepage = [
         { type = "search" },
-        { type = "archives", params = { limit = 5 } },
-        { type = "categories", params = { limit = 10 } },
-        { type = "tag-cloud", params = { limit = 10 } },
+        { type = "recent", params = { limit = 5, title = "Recently Updated" } },
+        { type = "tag-cloud", params = { limit = 10, title = "Trending Tags" } },
+    ]
+    archive = [
+        { type = "search" },
+        { type = "recent", params = { limit = 6, title = "Recently Updated" } },
+        { type = "tag-cloud", params = { limit = 10, title = "Trending Tags" } },
     ]
     page = [{ type = "toc" }]
 
