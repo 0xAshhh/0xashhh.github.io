@@ -10,28 +10,18 @@
                 {{ partial "article/components/content.html" . }}
             </div>
 
-            <div class="writeups-hero__stats">
-                <div class="writeups-stat">
-                    <span class="writeups-stat__label">Published</span>
-                    <strong class="writeups-stat__value">{{ len $posts }}</strong>
-                </div>
+            <p class="writeups-hero__meta">
+                <span>{{ len $posts }} published</span>
                 {{ with $latest }}
-                    <div class="writeups-stat">
-                        <span class="writeups-stat__label">Latest</span>
-                        <strong class="writeups-stat__value">{{ .Date.Format "02 Jan 2006" }}</strong>
-                    </div>
+                    <span>Latest: {{ .Date.Format "02 Jan 2006" }}</span>
                 {{ end }}
-            </div>
+            </p>
         </div>
 
         <div class="writeups-toolbar">
-            <a class="home-command__bar home-command__bar--compact" href="/search/">
-                <span class="home-command__prompt">lookup</span>
-                <span class="home-command__text">Jump into the archive by challenge name, competition, tag, or category.</span>
-                <span class="home-command__hint">Search</span>
-            </a>
+            <a class="home-search-link" href="/search/">Jump into the archive by challenge name, competition, tag, or category</a>
 
-            <div class="home-chipset home-chipset--compact">
+            <div class="home-chipset">
                 <a class="home-chip" href="/categories/binary-exploitation/">Binary Exploitation</a>
                 <a class="home-chip" href="/categories/reverse-engineering/">Reverse Engineering</a>
                 <a class="home-chip" href="/categories/web-exploitation/">Web Exploitation</a>

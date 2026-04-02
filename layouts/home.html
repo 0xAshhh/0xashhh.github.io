@@ -8,7 +8,7 @@
     <section class="home-shell">
         <section class="home-hero">
             <div class="home-hero__copy">
-                <p class="home-kicker">Digital Lab</p>
+                <p class="home-kicker">Security Research Blog</p>
                 <h1>{{ .Title }}</h1>
 
                 {{ with .Content }}
@@ -23,40 +23,21 @@
                     <a class="home-action" href="/profiles/">Profiles</a>
                 </div>
             </div>
-
-            <aside class="home-status">
-                <div class="home-status__line">
-                    <span class="home-status__label">status</span>
-                    <strong>curating verified challenge notes</strong>
-                </div>
-
-                <div class="home-status__cards">
-                    <div class="home-status__card">
-                        <span class="home-status__card-label">Published</span>
-                        <strong class="home-status__card-value">{{ len $posts }}</strong>
-                    </div>
-
-                    {{ with $latest }}
-                        <div class="home-status__card">
-                            <span class="home-status__card-label">Latest</span>
-                            <strong class="home-status__card-value">{{ .Date.Format "02 Jan 2006" }}</strong>
-                        </div>
-                    {{ end }}
-
-                    <div class="home-status__card">
-                        <span class="home-status__card-label">Focus</span>
-                        <strong class="home-status__card-value">Binary / Rev / CTF</strong>
-                    </div>
-                </div>
-            </aside>
         </section>
 
-        <section class="home-command">
-            <a class="home-command__bar" href="/search/">
-                <span class="home-command__prompt">query</span>
-                <span class="home-command__text">Search writeups, competitions, categories, or solve notes.</span>
-                <span class="home-command__hint">Open search</span>
-            </a>
+        <section class="home-status">
+            <p class="home-status__line">
+                <span class="home-status__label">Status</span>
+                <span>{{ len $posts }} published writeups</span>
+                {{ with $latest }}
+                    <span>Latest: {{ .Date.Format "02 Jan 2006" }}</span>
+                {{ end }}
+                <span>Focus: Binary / Reverse / CTF</span>
+            </p>
+        </section>
+
+        <section class="home-toolbar">
+            <a class="home-search-link" href="/search/">Search writeups, competitions, categories, or solve notes</a>
 
             <div class="home-chipset">
                 <a class="home-chip" href="/categories/binary-exploitation/">Binary Exploitation</a>
