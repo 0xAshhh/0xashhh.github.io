@@ -1,19 +1,165 @@
 {{ define "main" }}
-    {{- $paginator := partial "helper/paginator.html" . -}}
+    {{- $posts := where .Site.RegularPages "Section" "post" -}}
+    {{- $posts = $posts.ByDate.Reverse -}}
+    {{- $featured := first 3 $posts -}}
+    {{- $recent := first 6 $posts -}}
+    {{- $latest := index $posts 0 -}}
 
-    {{- if .Content -}}
-        <section class="home-intro">
-            {{ partial "article/components/content.html" . }}
+    <section class="home-shell">
+        <section class="home-hero">
+            <div class="home-hero__copy">
+                <p class="home-kicker">Digital Lab</p>
+                <h1>{{ .Title }}</h1>
+
+                {{ with .Content }}
+                    <div class="home-hero__body article-content">
+                        {{ . }}
+                    </div>
+                {{ end }}
+
+                <div class="home-actions">
+                    <a class="home-action home-action--primary" href="/writeups/">Open Writeups</a>
+                    <a class="home-action" href="/discoveries/">Research Notes</a>
+                    <a class="home-action" href="/profiles/">Profiles</a>
+                </div>
+            </div>
+
+            <aside class="home-status">
+                <div class="home-status__line">
+                    <span class="home-status__label">status</span>
+                    <strong>curating verified challenge notes</strong>
+                </div>
+
+                <div class="home-status__cards">
+                    <div class="home-status__card">
+                        <span class="home-status__card-label">Published</span>
+                        <strong class="home-status__card-value">{{ len $posts }}</strong>
+                    </div>
+
+                    {{ with $latest }}
+                        <div class="home-status__card">
+                            <span class="home-status__card-label">Latest</span>
+                            <strong class="home-status__card-value">{{ .Date.Format "02 Jan 2006" }}</strong>
+                        </div>
+                    {{ end }}
+
+                    <div class="home-status__card">
+                        <span class="home-status__card-label">Focus</span>
+                        <strong class="home-status__card-value">Binary / Rev / CTF</strong>
+                    </div>
+                </div>
+            </aside>
         </section>
-    {{- end -}}
 
-    <section class="article-list">
-        {{ range $index, $element := $paginator.Pages }}
-            {{ partial "article-list/default" . }}
-        {{ end }}
+        <section class="home-section">
+            <div class="home-section__header">
+                <div>
+                    <p class="home-label">Featured</p>
+                    <h2>Featured Work</h2>
+                    <p>The latest writeups, verified and ready to browse.</p>
+                </div>
+
+                <a class="home-section__link" href="/writeups/">Open archive</a>
+            </div>
+
+            <div class="home-featured-grid">
+                {{ range $featured }}
+                    {{- $category := "" -}}
+                    {{- with .Params.categories -}}
+                        {{- $category = index . 0 -}}
+                    {{- end -}}
+                    <article class="writeup-card">
+                        <a class="writeup-card__link" href="{{ .RelPermalink }}">
+                            <div class="writeup-card__meta">
+                                {{ with $category }}
+                                    <span class="writeup-card__category">{{ . }}</span>
+                                {{ end }}
+                                <time class="writeup-card__date">{{ .Date.Format "02 Jan 2006" }}</time>
+                            </div>
+
+                            <h3 class="writeup-card__title">{{ .Title }}</h3>
+
+                            {{ with .Description }}
+                                <p class="writeup-card__summary">{{ . }}</p>
+                            {{ else }}
+                                <p class="writeup-card__summary">{{ .Summary | plainify | truncate 170 }}</p>
+                            {{ end }}
+                        </a>
+                    </article>
+                {{ end }}
+            </div>
+        </section>
+
+        <section class="home-meta-grid">
+            <section class="home-section">
+                <div class="home-section__header">
+                    <div>
+                        <p class="home-label">Navigation</p>
+                        <h2>Lab Routes</h2>
+                        <p>Fast paths into the archive, research notes, and public profiles.</p>
+                    </div>
+                </div>
+
+                <div class="home-route-grid">
+                    <a class="home-route-card" href="/writeups/">
+                        <span class="home-route-card__eyebrow">Archive</span>
+                        <strong>Writeups</strong>
+                        <p>Challenge solutions with methodology, commands, proof, and final results.</p>
+                    </a>
+
+                    <a class="home-route-card" href="/discoveries/">
+                        <span class="home-route-card__eyebrow">Research</span>
+                        <strong>Discoveries</strong>
+                        <p>Smaller observations, reversing notes, and leads worth following.</p>
+                    </a>
+
+                    <a class="home-route-card" href="/profiles/">
+                        <span class="home-route-card__eyebrow">Contact</span>
+                        <strong>Profiles</strong>
+                        <p>Public accounts and the main places where this work is shared.</p>
+                    </a>
+
+                    <a class="home-route-card" href="/archives/">
+                        <span class="home-route-card__eyebrow">Timeline</span>
+                        <strong>Archives</strong>
+                        <p>Chronological browsing when you want the full posting history.</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="home-section">
+                <div class="home-section__header">
+                    <div>
+                        <p class="home-label">Updates</p>
+                        <h2>Recently Updated</h2>
+                        <p>The most recent writeups added to the site.</p>
+                    </div>
+                </div>
+
+                <div class="home-recent-list">
+                    {{ range $recent }}
+                        {{- $category := "" -}}
+                        {{- with .Params.categories -}}
+                            {{- $category = index . 0 -}}
+                        {{- end -}}
+                        <article class="home-recent-item">
+                            <a href="{{ .RelPermalink }}">
+                                <span class="home-recent-item__title">{{ .Title }}</span>
+
+                                <span class="home-recent-item__meta">
+                                    {{ with $category }}
+                                        <span>{{ . }}</span>
+                                    {{ end }}
+                                    <time>{{ .Date.Format "02 Jan 2006" }}</time>
+                                </span>
+                            </a>
+                        </article>
+                    {{ end }}
+                </div>
+            </section>
+        </section>
     </section>
 
-    {{- partial "pagination.html" . -}}
     {{- partial "footer/footer" . -}}
 {{ end }}
 

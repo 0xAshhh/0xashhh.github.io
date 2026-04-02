@@ -2,18 +2,4 @@
 title: "0xAsh"
 ---
 
-# 0xAsh
-
-Welcome to my digital lab. This homepage keeps the original Stack theme structure and highlights the areas I update most often.
-
-## Focus
-
-- Binary Exploitation
-- Reverse Engineering
-- CTF Challenges
-
-## Sections
-
-- [Writeups](/writeups/): organized challenge writeups with methodology, commands, and final results.
-- [Discoveries](/discoveries/): shorter research notes, odd behaviors, and ideas worth following up.
-- [Profiles](/profiles/): public accounts and contact points.
+Binary exploitation, reverse engineering, and CTF writeups built from real solve notes. This homepage highlights the latest verified work, the main research lanes, and the fastest paths into the archive.
