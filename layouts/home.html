@@ -51,6 +51,21 @@
             </aside>
         </section>
 
+        <section class="home-command">
+            <a class="home-command__bar" href="/search/">
+                <span class="home-command__prompt">query</span>
+                <span class="home-command__text">Search writeups, competitions, categories, or solve notes.</span>
+                <span class="home-command__hint">Open search</span>
+            </a>
+
+            <div class="home-chipset">
+                <a class="home-chip" href="/categories/binary-exploitation/">Binary Exploitation</a>
+                <a class="home-chip" href="/categories/reverse-engineering/">Reverse Engineering</a>
+                <a class="home-chip" href="/categories/web-exploitation/">Web Exploitation</a>
+                <a class="home-chip" href="/categories/forensics/">Forensics</a>
+            </div>
+        </section>
+
         <section class="home-section">
             <div class="home-section__header">
                 <div>
@@ -164,5 +179,4 @@
 {{ end }}
 
 {{ define "right-sidebar" }}
-    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
 {{ end }}

@@ -24,6 +24,21 @@
             </div>
         </div>
 
+        <div class="writeups-toolbar">
+            <a class="home-command__bar home-command__bar--compact" href="/search/">
+                <span class="home-command__prompt">lookup</span>
+                <span class="home-command__text">Jump into the archive by challenge name, competition, tag, or category.</span>
+                <span class="home-command__hint">Search</span>
+            </a>
+
+            <div class="home-chipset home-chipset--compact">
+                <a class="home-chip" href="/categories/binary-exploitation/">Binary Exploitation</a>
+                <a class="home-chip" href="/categories/reverse-engineering/">Reverse Engineering</a>
+                <a class="home-chip" href="/categories/web-exploitation/">Web Exploitation</a>
+                <a class="home-chip" href="/categories/forensics/">Forensics</a>
+            </div>
+        </div>
+
         {{ range $groups }}
             <section class="writeups-section">
                 <div class="writeups-section__header">
@@ -67,5 +82,4 @@
 {{ end }}
 
 {{ define "right-sidebar" }}
-    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
 {{ end }}
