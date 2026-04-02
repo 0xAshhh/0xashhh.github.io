@@ -48,4 +48,4 @@ The checker is underconstrained and accepts four valid flag strings:
 
 5) Writeup
 
-The non-uniqueness comes from the final checker: two equations use doubled-byte arithmetic, which leaves two possible byte values each, so `2 x 2 = 4` valid inputs survive. If the platform only accepts one canonical answer despite the local checker accepting four, try `texsaw{pAt1ence!!_W0rKn0w?}` first, but the ELF itself accepts all four.
+The non-uniqueness comes from the final checker: two equations use doubled-byte arithmetic, which leaves two possible byte values each, so `2 x 2 = 4` valid inputs survive. I verified all four strings above against the provided ELF, and each is accepted by the shipped checker.

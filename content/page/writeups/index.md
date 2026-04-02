@@ -12,7 +12,7 @@ menu:
 
 # Writeups
 
-This archive currently exposes `53` published writeups collected from solved challenges and preserved notes.
+This archive currently exposes `52` published writeups collected from solved challenges and preserved notes.
 
 The cards below are generated from the live post collection, so anything published into the archive appears here automatically.
 

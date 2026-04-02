@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
-
 @view-transition {
     navigation: auto;
 }
 
 :root {
-    --ash-sans: "Plus Jakarta Sans", sans-serif;
-    --ash-mono: "IBM Plex Mono", monospace;
+    --ash-sans: "Segoe UI Variable Text", "Segoe UI", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --ash-mono: "Cascadia Mono", "Cascadia Code", "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    --ash-reading-width: 68ch;
+    --ash-body-size: 1.04rem;
 }
 
 @keyframes soft-page-enter {
@@ -38,6 +38,7 @@ input,
 textarea,
 select {
     font-family: var(--ash-sans);
+    font-size: 16px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
@@ -53,11 +54,10 @@ select {
 .article-content h3,
 .article-content h4 {
     font-family: var(--ash-sans);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
 }
 
 .site-description,
-.menu li a,
 .article-tags a,
 .tagCloud-tags a,
 .article-content code,
@@ -67,14 +67,32 @@ select {
 }
 
 .site-name a {
-    font-weight: 800;
-    letter-spacing: -0.04em;
+    font-weight: 780;
+    letter-spacing: -0.03em;
 }
 
 .site-description {
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.76rem;
+    font-family: var(--ash-sans);
+    letter-spacing: 0;
+    text-transform: none;
+    font-size: 0.93rem;
+    line-height: 1.55;
+    opacity: 0.74;
+}
+
+.menu li a,
+.menu-social li a,
+.widget--toc .widget-title,
+.widget--archives .widget-title,
+.widget--categories .widget-title,
+.widget--tag-cloud .widget-title {
+    font-family: var(--ash-sans);
+}
+
+.menu li a {
+    font-size: 0.96rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 .home-intro {
@@ -197,7 +215,8 @@ select {
     margin: 0;
     font-size: 1.45rem;
     line-height: 1.1;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
+    font-weight: 760;
 }
 
 .writeups-section__count {
@@ -257,18 +276,19 @@ select {
 .writeup-card__title {
     margin: 0 0 0.75rem;
     font-size: 1.3rem;
-    line-height: 1.18;
+    line-height: 1.14;
+    font-weight: 760;
 }
 
 .writeup-card__summary {
     margin: 0;
-    line-height: 1.72;
-    opacity: 0.9;
+    line-height: 1.68;
+    opacity: 0.88;
 }
 
 .writeup-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 24px 42px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
 }
 
 .article-list article,
@@ -290,8 +310,8 @@ select {
 .article-list article:hover,
 .widget:hover,
 .search-form.widget:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
 }
 
 .menu li a:hover,
@@ -309,11 +329,13 @@ select {
 }
 
 .article-title {
-    line-height: 1.12;
+    line-height: 1.08;
+    font-weight: 760;
 }
 
 .article-subtitle {
-    line-height: 1.72;
+    max-width: 64ch;
+    line-height: 1.68;
     opacity: 0.92;
 }
 
@@ -322,8 +344,8 @@ select {
 }
 
 .article-content {
-    line-height: 1.85;
-    font-size: 1.02rem;
+    font-size: var(--ash-body-size);
+    line-height: 1.8;
 }
 
 .article-content > h2,
@@ -332,20 +354,31 @@ select {
 }
 
 .article-content > h2 {
-    margin-top: 2.8rem;
-    font-size: 1.9rem;
+    margin-top: 2.6rem;
+    font-size: 1.82rem;
+    line-height: 1.14;
 }
 
 .article-content > h3 {
     margin-top: 2rem;
-    font-size: 1.4rem;
+    font-size: 1.34rem;
+    line-height: 1.2;
 }
 
 .article-content > p,
 .article-content > ul,
 .article-content > ol,
 .article-content > blockquote {
-    max-width: 70ch;
+    max-width: var(--ash-reading-width);
+}
+
+.article-content > ul,
+.article-content > ol {
+    padding-left: 1.3rem;
+}
+
+.article-content strong {
+    font-weight: 700;
 }
 
 .article-content :not(pre) > code {
@@ -361,6 +394,7 @@ select {
 
 .search-form input {
     font-family: var(--ash-sans);
+    font-size: 0.96rem;
 }
 
 .search-form input:focus {
@@ -386,7 +420,7 @@ select {
     }
 
     .article-content {
-        font-size: 0.98rem;
+        font-size: 0.99rem;
     }
 }
 
